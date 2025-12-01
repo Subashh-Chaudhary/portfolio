@@ -1,0 +1,28 @@
+/* Binary Voxel Portrait Slider Styles */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
+}
+
+.slider::-moz-range-thumb:hover {
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
+}

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Syne } from 'next/font/google'
 import './globals.css'
-import { Header } from '@/components/layout/header'
+import '../styles/voxel-slider.css'
 import { VerticalNav } from '@/components/layout/vertical-nav'
 import { Footer } from '@/components/layout/footer'
 import { siteConfig } from '@/lib/config/site'
