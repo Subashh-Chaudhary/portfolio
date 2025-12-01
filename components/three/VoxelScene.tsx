@@ -171,11 +171,13 @@ export function VoxelScene({
 
             {/* Controls */}
             <OrbitControls
+                makeDefault
                 enableDamping
                 dampingFactor={0.05}
                 rotateSpeed={0.5}
                 zoomSpeed={0.8}
-                minDistance={5}
+                enableZoom={true}
+                minDistance={2}
                 maxDistance={100}
             />
         </>

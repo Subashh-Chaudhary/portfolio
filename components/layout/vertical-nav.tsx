@@ -12,7 +12,7 @@ export function VerticalNav() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="fixed top-0 right-0 z-50 h-screen flex flex-col justify-center px-8 pointer-events-none"
+            className="fixed top-0 right-0 z-50 h-screen flex flex-col justify-center px-12 pointer-events-none"
         >
             <ul className="flex flex-col gap-6 items-end pointer-events-auto">
                 {navigationLinks.map((link) => (
