@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Syne } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/header'
+import { VerticalNav } from '@/components/layout/vertical-nav'
 import { Footer } from '@/components/layout/footer'
 import { siteConfig } from '@/lib/config/site'
 
-const inter = Inter({ subsets: ['latin'] })
+const syne = Syne({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -44,9 +45,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <Header />
+    <html lang="en" suppressHydrationWarning className="dark">
+      <body className={syne.className}>
+        {/* <Header /> */}
+        <VerticalNav />
         {children}
         <Footer />
       </body>

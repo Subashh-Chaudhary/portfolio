@@ -11,7 +11,7 @@ export function HeroSection() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="min-h-screen flex items-center justify-center relative"
+            className="h-screen flex items-center justify-center relative overflow-hidden"
         >
             <div className="text-center max-w-4xl mx-auto px-4">
                 <motion.div variants={staggerItem} className="mb-4">
