@@ -30,12 +30,24 @@ export const skills: Skill[] = [
     { id: '20', name: 'AWS', category: 'devops', proficiency: 75, yearsOfExperience: 2 },
     { id: '21', name: 'CI/CD', category: 'devops', proficiency: 80, yearsOfExperience: 2 },
     { id: '22', name: 'Vercel', category: 'devops', proficiency: 90, yearsOfExperience: 3 },
+    { id: '33', name: 'Kubernetes', category: 'devops', proficiency: 70, yearsOfExperience: 1 },
+    { id: '34', name: 'GitHub Actions', category: 'devops', proficiency: 85, yearsOfExperience: 2 },
+    { id: '35', name: 'Nginx', category: 'devops', proficiency: 75, yearsOfExperience: 2 },
+    { id: '36', name: 'Linux', category: 'devops', proficiency: 85, yearsOfExperience: 3 },
 
     // Tools
     { id: '23', name: 'Git', category: 'tools', proficiency: 95, yearsOfExperience: 5 },
     { id: '24', name: 'VS Code', category: 'tools', proficiency: 95, yearsOfExperience: 5 },
     { id: '25', name: 'Figma', category: 'tools', proficiency: 80, yearsOfExperience: 3 },
     { id: '26', name: 'Postman', category: 'tools', proficiency: 90, yearsOfExperience: 4 },
+
+    // AI/Ml
+    { id: '27', name: 'Python', category: 'ai_ml', proficiency: 85, yearsOfExperience: 2 },
+    { id: '28', name: 'TensorFlow', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2 },
+    { id: '29', name: 'PyTorch', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2 },
+    { id: '30', name: 'Scikit-learn', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2 },
+    { id: '31', name: 'NumPy', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2 },
+    { id: '32', name: 'Pandas', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2 },
 ]
 
 export const skillGroups: SkillGroup[] = [
@@ -64,4 +76,9 @@ export const skillGroups: SkillGroup[] = [
         title: 'Tools & Software',
         skills: skills.filter((s) => s.category === 'tools'),
     },
+    {
+        category: 'ai_ml',
+        title: 'AI & Machine Learning',
+        skills: skills.filter((s) => s.category === 'ai_ml'),
+    }
 ]

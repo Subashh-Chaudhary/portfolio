@@ -15,6 +15,7 @@ export type SkillCategory =
     | 'tools'
     | 'design'
     | 'other'
+    | 'ai_ml'
 
 export interface SkillGroup {
     category: SkillCategory
