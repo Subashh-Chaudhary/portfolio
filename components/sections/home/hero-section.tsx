@@ -64,7 +64,7 @@ export function HeroSection() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="h-screen flex items-center justify-center relative overflow-hidden bg-black"
+            className="h-screen max-h-screen flex items-center justify-center relative overflow-hidden bg-black"
         >
             {/* Custom Tech Cursor */}
             {isHoveringVoxels && (
