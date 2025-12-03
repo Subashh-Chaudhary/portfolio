@@ -1,0 +1,17 @@
+{
+  "name": "Subash Tharu - Full Stack Developer",
+  "short_name": "Subash",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#79aaff",
+  "description": "Portfolio of Subash Tharu - Full Stack Developer. Explore projects, skills, and contact information.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -95,7 +95,7 @@ export function VerticalNav() {
                 transition={{ delay: 0.5, duration: 0.5 }}
                 className="hidden md:flex fixed top-0 right-0 z-50 h-screen flex-col mt-16 px-4 sm:mt-20 sm:px-6 md:mt-24 md:px-8 lg:mt-32 lg:px-10 xl:mt-36 xl:px-12 2xl:mt-40 2xl:px-16 pointer-events-none"
             >
-                <ul className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-6 2xl:gap-8 items-end pointer-events-auto">
+                <ul className="flex flex-col gap-3 sm:gap-4 md:gap-4 lg:gap-5 xl:gap-5 2xl:gap-6 items-end pointer-events-auto">
                     {navigationLinks.map((link) => (
                         <li key={link.href}>
                             <Link href={link.href}>

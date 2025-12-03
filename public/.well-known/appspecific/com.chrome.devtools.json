@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "description": "Optional Chrome DevTools app-specific config placeholder",
+  "generated_at": "2025-12-04T00:00:00Z",
+  "notes": "This file exists to avoid 404s when DevTools probes for app-specific configuration. It is safe to keep or remove."
+}

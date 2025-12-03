@@ -16,25 +16,25 @@ export const socialLinks: SocialLink[] = [
     {
         id: '1',
         platform: 'github',
-        url: 'https://github.com/subashtharu',
+        url: 'https://github.com/Subashh-Chaudhary',
         username: 'subashtharu',
     },
     {
         id: '2',
         platform: 'linkedin',
-        url: 'https://linkedin.com/in/subashtharu',
+        url: 'https://www.linkedin.com/in/developer-subash/',
         username: 'subashtharu',
     },
     {
         id: '3',
         platform: 'twitter',
-        url: 'https://twitter.com/subashtharu',
+        url: 'https://x.com/Suv_Aas',
         username: 'subashtharu',
     },
     {
         id: '4',
         platform: 'dev',
-        url: 'https://dev.to/subashtharu',
+        url: 'https://subashtharu.com.np',
         username: 'subashtharu',
     },
 ]
