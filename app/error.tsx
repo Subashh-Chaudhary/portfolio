@@ -14,6 +14,10 @@ export default function Error({
 }) {
     useEffect(() => {
         console.error(error)
+        document.body.classList.add('error-page');
+        return () => {
+            document.body.classList.remove('error-page');
+        };
     }, [error])
 
     return (

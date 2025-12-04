@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Syne } from 'next/font/google'
 import './globals.css'
 import '../styles/voxel-slider.css'
-import { VerticalNav } from '@/components/layout/vertical-nav'
+import { ConditionalNav } from '@/components/layout/conditional-nav'
 import { Footer } from '@/components/layout/footer'
 import { seo } from '@/data/seo'
 import { SEOJsonLd, generateWebSiteSchema, generatePersonSchema } from '@/components/seo/SEOJsonLd'
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   description: seo.siteDescription,
   keywords: seo.defaultKeywords,
   authors: [
-    { 
-      name: seo.author.name, 
-      url: seo.author.url 
+    {
+      name: seo.author.name,
+      url: seo.author.url
     }
   ],
   creator: seo.author.name,
@@ -109,7 +109,7 @@ export default function RootLayout({
       </head>
       <body className={syne.className}>
         {/* <Header /> */}
-        <VerticalNav />
+        <ConditionalNav />
         {children}
         <Footer />
       </body>

@@ -1,10 +1,18 @@
 'use client'
 
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Terminal, AlertTriangle, Home, ArrowLeft } from 'lucide-react'
 
 export default function NotFound() {
+    useEffect(() => {
+        document.body.classList.add('not-found-page');
+        return () => {
+            document.body.classList.remove('not-found-page');
+        };
+    }, []);
+
     return (
         <div className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
             {/* Background Grid & Data Lines */}
