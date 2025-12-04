@@ -40,6 +40,65 @@ export function SkillsShowcaseSection() {
                 <div className="absolute bottom-10 right-10 w-4 h-4 border-b border-r border-white/30" />
             </div>
 
+            {/* Animated Gradient Background */}
+            <div className="absolute inset-0 z-0 opacity-30">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-gradient-shift" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
+            </div>
+
+            {/* Floating Particles */}
+            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                {[...Array(20)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
+                        initial={{
+                            x: Math.random() * window.innerWidth,
+                            y: Math.random() * window.innerHeight,
+                        }}
+                        animate={{
+                            y: [null, Math.random() * window.innerHeight],
+                            x: [null, Math.random() * window.innerWidth],
+                        }}
+                        transition={{
+                            duration: Math.random() * 10 + 10,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    />
+                ))}
+            </div>
+
+            {/* Background Grid & Data Lines */}
+            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse" />
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent animate-pulse" style={{ animationDelay: '1s' }} />
+                <div className="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
+                <div className="absolute right-0 top-0 w-px h-full bg-gradient-to-b from-transparent via-purple-500 to-transparent" />
+
+                {/* Animated Crosshairs */}
+                <motion.div
+                    className="absolute top-10 left-10 w-4 h-4 border-t border-l border-blue-400"
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                />
+                <motion.div
+                    className="absolute top-10 right-10 w-4 h-4 border-t border-r border-purple-400"
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                />
+                <motion.div
+                    className="absolute bottom-10 left-10 w-4 h-4 border-b border-l border-blue-400"
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                />
+                <motion.div
+                    className="absolute bottom-10 right-10 w-4 h-4 border-b border-r border-purple-400"
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
+                />
+            </div>
+
             {/* HUD Elements */}
             <div className="absolute top-4 left-4 md:top-6 md:left-6 lg:top-8 lg:left-8 z-20 font-mono text-[10px] md:text-xs text-blue-400/60 hidden md:block">
                 <div>MODULE: SKILLS_MATRIX</div>
