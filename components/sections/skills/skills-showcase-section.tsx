@@ -53,12 +53,12 @@ export function SkillsShowcaseSection() {
                         key={i}
                         className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
                         initial={{
-                            x: Math.random() * window.innerWidth,
-                            y: Math.random() * window.innerHeight,
+                            x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : 0,
+                            y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : 0,
                         }}
                         animate={{
-                            y: [null, Math.random() * window.innerHeight],
-                            x: [null, Math.random() * window.innerWidth],
+                            y: typeof window !== 'undefined' ? [null, Math.random() * window.innerHeight] : [null, 0],
+                            x: typeof window !== 'undefined' ? [null, Math.random() * window.innerWidth] : [null, 0],
                         }}
                         transition={{
                             duration: Math.random() * 10 + 10,

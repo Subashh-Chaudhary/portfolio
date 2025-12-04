@@ -1,3 +1,5 @@
+'use client'
+
 import { SkillsShowcaseSection } from '@/components/sections/skills/skills-showcase-section'
 import { PageWrapper } from '@/components/layout/page-wrapper'
 
