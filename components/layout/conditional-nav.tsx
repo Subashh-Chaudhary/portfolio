@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { VerticalNav } from "./vertical-nav";
 
 export function ConditionalNav() {
     const [shouldHide, setShouldHide] = useState(false);
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
 
     useEffect(() => {
-        // Check if we're on an error or not-found page by checking the document title or body class
+        // Check if we're on an error or not-found page
         const checkErrorPage = () => {
             const isErrorPage = document.body.classList.contains('error-page') ||
                 document.body.classList.contains('not-found-page');
@@ -27,5 +30,5 @@ export function ConditionalNav() {
         return null;
     }
 
-    return <VerticalNav />;
+    return <VerticalNav isHomePage={isHomePage} />;
 }
