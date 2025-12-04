@@ -13,14 +13,16 @@ const HeroVoxelPortrait = dynamic(
     { ssr: false }
 )
 
-// Scramble text effect component
+// Scramble text effect component - optimized with requestAnimationFrame
 const ScrambleText = ({ text }: { text: string }) => {
     const [display, setDisplay] = useState(text)
     const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?'
 
     const scramble = () => {
         let iterations = 0
-        const interval = setInterval(() => {
+        let animationFrameId: number
+
+        const animate = () => {
             setDisplay(
                 text
                     .split('')
@@ -30,9 +32,20 @@ const ScrambleText = ({ text }: { text: string }) => {
                     })
                     .join('')
             )
-            if (iterations >= text.length) clearInterval(interval)
-            iterations += 1 / 3
-        }, 30)
+
+            if (iterations < text.length) {
+                iterations += 1 / 3
+                animationFrameId = requestAnimationFrame(animate)
+            }
+        }
+
+        animationFrameId = requestAnimationFrame(animate)
+
+        return () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId)
+            }
+        }
     }
 
     return (
@@ -47,16 +60,32 @@ export function HeroSection() {
     const [isHoveringVoxels, setIsHoveringVoxels] = useState(false)
 
     useEffect(() => {
+        let rafId: number
+        let lastTime = 0
+        const throttleDelay = 16 // ~60fps
+
         const handleMouseMove = (e: MouseEvent) => {
-            setMousePosition({
-                x: (e.clientX / window.innerWidth) * 2 - 1,
-                y: (e.clientY / window.innerHeight) * 2 - 1,
-                pixelX: e.clientX,
-                pixelY: e.clientY,
+            const currentTime = Date.now()
+            if (currentTime - lastTime < throttleDelay) return
+
+            lastTime = currentTime
+
+            if (rafId) cancelAnimationFrame(rafId)
+            rafId = requestAnimationFrame(() => {
+                setMousePosition({
+                    x: (e.clientX / window.innerWidth) * 2 - 1,
+                    y: (e.clientY / window.innerHeight) * 2 - 1,
+                    pixelX: e.clientX,
+                    pixelY: e.clientY,
+                })
             })
         }
-        window.addEventListener('mousemove', handleMouseMove)
-        return () => window.removeEventListener('mousemove', handleMouseMove)
+
+        window.addEventListener('mousemove', handleMouseMove, { passive: true })
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove)
+            if (rafId) cancelAnimationFrame(rafId)
+        }
     }, [])
 
     return (
@@ -88,8 +117,8 @@ export function HeroSection() {
                 </div>
             )}
 
-            {/* Background Grid & Data Lines */}
-            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+            {/* Background Grid & Data Lines - use content-visibility for better performance */}
+            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" style={{ contentVisibility: 'auto' }}>
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
                 <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
                 <div className="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent" />

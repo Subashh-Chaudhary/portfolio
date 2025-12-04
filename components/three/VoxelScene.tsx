@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useMemo } from 'react';
+import { useEffect, useRef, useMemo, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -22,6 +22,7 @@ export function VoxelScene({
     const meshRef = useRef<THREE.InstancedMesh>(null);
     const matrixRef = useRef<BinaryMatrix | null>(null);
     const { camera } = useThree();
+    const [isInViewport, setIsInViewport] = useState(true);
 
     // Create geometry based on mode
     const geometry = useMemo(() => {
@@ -140,15 +141,17 @@ export function VoxelScene({
         camera.lookAt(0, 0, 0);
     };
 
-    // Calculate max instances
+    // Calculate max instances - optimized for mobile
     const maxInstances = useMemo(() => {
-        // Estimate based on typical image size and pixel step
-        return Math.ceil((1000 / config.pixelStep) * (1000 / config.pixelStep));
+        // Reduce instances on mobile for better performance
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+        const baseInstances = Math.ceil((1000 / config.pixelStep) * (1000 / config.pixelStep));
+        return isMobile ? Math.floor(baseInstances * 0.7) : baseInstances;
     }, [config.pixelStep]);
 
-    // Subtle rotation animation
+    // Subtle rotation animation - only when in viewport
     useFrame((state) => {
-        if (meshRef.current) {
+        if (meshRef.current && isInViewport) {
             meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.1) * 0.05;
         }
     });

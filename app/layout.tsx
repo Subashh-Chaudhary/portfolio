@@ -7,7 +7,12 @@ import { Footer } from '@/components/layout/footer'
 import { seo } from '@/data/seo'
 import { SEOJsonLd, generateWebSiteSchema, generatePersonSchema } from '@/components/seo/SEOJsonLd'
 
-const syne = Syne({ subsets: ['latin'] })
+const syne = Syne({
+  subsets: ['latin'],
+  display: 'swap', // Prevent FOIT (Flash of Invisible Text)
+  preload: true,
+  variable: '--font-syne',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.siteUrl),
@@ -101,9 +106,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <head>
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Favicon - critical for initial load */}
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="shortcut icon" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
+
+        {/* JSON-LD structured data - non-blocking */}
         <SEOJsonLd data={webSiteSchema} />
         <SEOJsonLd data={personSchema} />
       </head>

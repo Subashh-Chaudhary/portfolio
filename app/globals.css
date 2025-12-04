@@ -78,9 +78,8 @@
   background: hsl(var(--primary) / 0.8);
 }
 
-/* Smooth scrolling */
+/* Optimize scrolling - removed scroll-behavior for better control */
 html {
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -95,4 +94,36 @@ body {
 ::selection {
   background-color: hsl(var(--primary) / 0.3);
   color: hsl(var(--foreground));
+}
+
+/* Performance utilities */
+@layer utilities {
+  .content-visibility-auto {
+    content-visibility: auto;
+  }
+
+  .contain-layout {
+    contain: layout;
+  }
+
+  .contain-paint {
+    contain: paint;
+  }
+
+  .contain-strict {
+    contain: strict;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
 }
