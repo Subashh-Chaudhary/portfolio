@@ -126,28 +126,28 @@ export function Loader() {
             <div className="relative z-10">
                 {/* Outer Rotating Rings */}
                 <motion.div
-                    className="absolute inset-0 w-48 h-48 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+                    className="absolute inset-0 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 >
                     <div className="absolute inset-0 border-2 border-purple-500/30 rounded-full" />
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-purple-500 rounded-full" />
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-pink-500 rounded-full" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 sm:w-3 sm:h-3 bg-purple-500 rounded-full" />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-pink-500 rounded-full" />
                 </motion.div>
 
                 <motion.div
-                    className="absolute inset-0 w-40 h-40 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+                    className="absolute inset-0 w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
                     animate={{ rotate: -360 }}
                     transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
                 >
                     <div className="absolute inset-0 border-2 border-pink-500/30 rounded-full border-dashed" />
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-blue-500 rounded-full" />
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-purple-500 rounded-full" />
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full" />
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-500 rounded-full" />
                 </motion.div>
 
                 {/* Central Hexagon */}
                 <motion.div
-                    className="relative w-32 h-32"
+                    className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32"
                     animate={{
                         scale: [1, 1.05, 1],
                         rotate: [0, 5, -5, 0]
@@ -186,7 +186,7 @@ export function Loader() {
                         animate={{ rotate: 360 }}
                         transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                     >
-                        <div className="w-16 h-16 border-4 border-transparent border-t-purple-500 border-r-pink-500 rounded-full" />
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-3 sm:border-4 border-transparent border-t-purple-500 border-r-pink-500 rounded-full" />
                     </motion.div>
 
                     {/* Center Icons */}
@@ -198,34 +198,34 @@ export function Loader() {
                             }}
                             transition={{ duration: 2, repeat: Infinity }}
                         >
-                            <Cpu className="w-8 h-8 text-purple-400" />
+                            <Cpu className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-purple-400" />
                         </motion.div>
                     </div>
 
                     {/* Corner Accents */}
-                    <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-purple-500" />
-                    <div className="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-pink-500" />
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-pink-500" />
-                    <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-blue-500" />
+                    <div className="absolute -top-1.5 -left-1.5 sm:-top-2 sm:-left-2 w-3 h-3 sm:w-4 sm:h-4 border-t-2 border-l-2 border-purple-500" />
+                    <div className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 w-3 h-3 sm:w-4 sm:h-4 border-t-2 border-r-2 border-pink-500" />
+                    <div className="absolute -bottom-1.5 -left-1.5 sm:-bottom-2 sm:-left-2 w-3 h-3 sm:w-4 sm:h-4 border-b-2 border-l-2 border-pink-500" />
+                    <div className="absolute -bottom-1.5 -right-1.5 sm:-bottom-2 sm:-right-2 w-3 h-3 sm:w-4 sm:h-4 border-b-2 border-r-2 border-blue-500" />
                 </motion.div>
 
                 {/* Orbiting Particles */}
                 {[0, 120, 240].map((angle, i) => (
                     <motion.div
                         key={i}
-                        className="absolute w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                        className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
                         style={{
                             left: '50%',
                             top: '50%',
                         }}
                         animate={{
                             x: [
-                                Math.cos((angle * Math.PI) / 180) * 60,
-                                Math.cos(((angle + 360) * Math.PI) / 180) * 60,
+                                Math.cos((angle * Math.PI) / 180) * (typeof window !== 'undefined' && window.innerWidth < 640 ? 45 : 60),
+                                Math.cos(((angle + 360) * Math.PI) / 180) * (typeof window !== 'undefined' && window.innerWidth < 640 ? 45 : 60),
                             ],
                             y: [
-                                Math.sin((angle * Math.PI) / 180) * 60,
-                                Math.sin(((angle + 360) * Math.PI) / 180) * 60,
+                                Math.sin((angle * Math.PI) / 180) * (typeof window !== 'undefined' && window.innerWidth < 640 ? 45 : 60),
+                                Math.sin(((angle + 360) * Math.PI) / 180) * (typeof window !== 'undefined' && window.innerWidth < 640 ? 45 : 60),
                             ],
                         }}
                         transition={{
@@ -240,13 +240,13 @@ export function Loader() {
 
             {/* Loading Text */}
             <motion.div
-                className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20"
+                className="absolute bottom-28 sm:bottom-32 left-1/2 -translate-x-1/2 z-20 px-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
             >
-                <div className="font-mono text-sm text-purple-400 tracking-widest uppercase flex items-center gap-3">
-                    <Terminal className="w-4 h-4 animate-pulse" />
+                <div className="font-mono text-xs sm:text-sm text-purple-400 tracking-wider sm:tracking-widest uppercase flex items-center gap-2 sm:gap-3">
+                    <Terminal className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse" />
                     <GlitchText text="LOADING PORTFOLIO" />
                     <motion.span
                         animate={{ opacity: [0, 1, 0] }}
@@ -258,7 +258,7 @@ export function Loader() {
             </motion.div>
 
             {/* Progress Bar */}
-            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 z-20">
+            <div className="absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 w-56 sm:w-64 md:w-72 z-20 px-4">
                 <div className="relative h-1 bg-gray-800 rounded-full overflow-hidden">
                     <motion.div
                         className="absolute inset-y-0 left-0 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500"
@@ -273,7 +273,7 @@ export function Loader() {
                         transition={{ duration: 1, repeat: Infinity }}
                     />
                 </div>
-                <div className="flex justify-between mt-2 font-mono text-xs text-gray-500">
+                <div className="flex justify-between mt-2 font-mono text-[10px] sm:text-xs text-gray-500">
                     <span>0%</span>
                     <span className="text-purple-400">{Math.round(progress)}%</span>
                     <span>100%</span>
