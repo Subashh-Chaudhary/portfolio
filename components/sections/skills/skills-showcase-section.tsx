@@ -25,125 +25,16 @@ export function SkillsShowcaseSection() {
     const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
 
     return (
-        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 bg-black overflow-hidden">
-            {/* Background Grid & Data Lines */}
-            <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
-                <div className="absolute left-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-blue-500/30 to-transparent" />
-                <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-purple-500/30 to-transparent" />
-
-                {/* Corner Crosshairs */}
-                <div className="absolute top-10 left-10 w-4 h-4 border-t border-l border-white/30" />
-                <div className="absolute top-10 right-10 w-4 h-4 border-t border-r border-white/30" />
-                <div className="absolute bottom-10 left-10 w-4 h-4 border-b border-l border-white/30" />
-                <div className="absolute bottom-10 right-10 w-4 h-4 border-b border-r border-white/30" />
-            </div>
-
-            {/* Animated Gradient Background */}
-            <div className="absolute inset-0 z-0 opacity-30">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-gradient-shift" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
-            </div>
-
-            {/* Floating Particles */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                {[...Array(20)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
-                        initial={{
-                            x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : 0,
-                            y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : 0,
-                        }}
-                        animate={{
-                            y: typeof window !== 'undefined' ? [null, Math.random() * window.innerHeight] : [null, 0],
-                            x: typeof window !== 'undefined' ? [null, Math.random() * window.innerWidth] : [null, 0],
-                        }}
-                        transition={{
-                            duration: Math.random() * 10 + 10,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                    />
-                ))}
-            </div>
-
-            {/* Background Grid & Data Lines */}
-            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-pulse" />
-                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent animate-pulse" style={{ animationDelay: '1s' }} />
-                <div className="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
-                <div className="absolute right-0 top-0 w-px h-full bg-gradient-to-b from-transparent via-purple-500 to-transparent" />
-
-                {/* Animated Crosshairs */}
-                <motion.div
-                    className="absolute top-10 left-10 w-4 h-4 border-t border-l border-blue-400"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                />
-                <motion.div
-                    className="absolute top-10 right-10 w-4 h-4 border-t border-r border-purple-400"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                />
-                <motion.div
-                    className="absolute bottom-10 left-10 w-4 h-4 border-b border-l border-blue-400"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                />
-                <motion.div
-                    className="absolute bottom-10 right-10 w-4 h-4 border-b border-r border-purple-400"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
-                />
-            </div>
-
-            {/* HUD Elements */}
-            <div className="absolute top-4 left-4 md:top-6 md:left-6 lg:top-8 lg:left-8 z-20 font-mono text-[10px] md:text-xs text-blue-400/60 hidden md:block">
-                <div>MODULE: SKILLS_MATRIX</div>
-                <div>STATUS: ACTIVE</div>
-                <div>CATEGORIES: {skillGroups.length}</div>
-            </div>
-
-            <div className="absolute top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8 z-20 font-mono text-[10px] md:text-xs text-purple-400/60 hidden md:block text-right">
-                <div>PROFICIENCY: ADVANCED</div>
-                <div>RENDER: TECH_STACK_V2</div>
-                <div>MODE: INTERACTIVE</div>
+        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-black overflow-hidden">
+            {/* Subtle Background Grid */}
+            <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent" />
+                <div className="absolute left-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-purple-500/30 to-transparent" />
+                <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-pink-500/30 to-transparent" />
             </div>
 
             <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-                {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-8 sm:mb-10 md:mb-12 lg:mb-16 xl:mb-20"
-                >
-                    {/* Title Tag */}
-                    <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 md:mb-8">
-                        <div className="h-px w-8 sm:w-12 md:w-16 bg-blue-500" />
-                        <span className="font-mono text-blue-400 text-[10px] sm:text-xs md:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                            TECHNICAL_ARSENAL
-                        </span>
-                    </div>
-
-                    {/* Main Title */}
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tighter text-white mb-4 sm:mb-5 md:mb-6">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
-                            SKILLS &
-                        </span>
-                        <br />
-                        <span className="hover:text-blue-500 transition-colors duration-300">
-                            TECHNOLOGIES
-                        </span>
-                    </h2>
-
-                    <p className="text-gray-400 max-w-2xl font-light border-l-2 border-white/10 pl-3 sm:pl-4 md:pl-6 text-sm sm:text-base md:text-lg">
-                        Advanced proficiency across the full technology stack — from pixel-perfect interfaces to scalable backend architectures.
-                    </p>
-                </motion.div>
-
                 {/* Skills Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
                     {skillGroups.map((group, groupIndex) => {

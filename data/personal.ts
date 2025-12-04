@@ -5,9 +5,9 @@ export const personalInfo: PersonalInfo = {
     title: 'Full Stack Software Developer',
     tagline: 'Crafting exceptional digital experiences with modern web technologies',
     bio: 'Passionate Full Stack Developer with expertise in building scalable, performant web applications. I specialize in React, Next.js, and Node.js, with a keen eye for design and user experience. I love creating beautiful, animated interfaces that engage users and solve real-world problems.',
-    email: 'subash@example.com',
-    phone: '+977 9800000000',
-    location: 'Kathmandu, Nepal',
+    email: 'subashtharu.dev@gmail.com',
+    phone: '+977 9706821175',
+    location: 'Lalitpur, Nepal',
     avatar: '/images/avatars/profile.jpg',
     resume: '/resume.pdf',
 }
