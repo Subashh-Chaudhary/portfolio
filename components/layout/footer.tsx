@@ -1,6 +1,6 @@
 'use client'
 
-import { footer } from '@/data/footer'
+import { socialLinks } from '@/data/personal'
 import { Github, Linkedin, Twitter } from 'lucide-react'
 
 const iconMap = {
@@ -10,9 +10,10 @@ const iconMap = {
 }
 
 export function Footer() {
-    const leftColumn = footer.find(item => item.id === '1')
-    const middleColumn = footer.find(item => item.id === '2')
-    const socialLinks = footer.find(item => item.id === '3')
+    // Filter to only show github, linkedin, and twitter
+    const displayedSocials = socialLinks.filter(link =>
+        ['github', 'linkedin', 'twitter'].includes(link.platform)
+    )
 
     return (
         /* Bottom Bar - optimized with content-visibility */
@@ -28,13 +29,15 @@ export function Footer() {
             </div>
 
             <div className="flex gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-6 2xl:gap-8 pointer-events-auto order-1 md:order-3 mb-1 md:mb-0">
-                {['GITHUB', 'LINKEDIN', 'TWITTER'].map((social) => (
+                {displayedSocials.map((social) => (
                     <a
-                        key={social}
-                        href="#"
+                        key={social.id}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-xs 2xl:text-sm font-mono text-gray-500 hover:text-white transition-colors"
                     >
-                        {social}
+                        {social.platform.toUpperCase()}
                     </a>
                 ))}
             </div>
