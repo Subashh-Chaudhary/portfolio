@@ -38,12 +38,12 @@ class AnimationController {
     private readonly numberOfStars = 5000
     private readonly trailLength = 80
 
-    constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, dpr: number, size: number) {
+    constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, dpr: number, size: number, loop: boolean = true) {
         this.canvas = canvas
         this.ctx = ctx
         this.dpr = dpr
         this.size = size
-        this.timeline = gsap.timeline({ repeat: -1 })
+        this.timeline = gsap.timeline({ repeat: loop ? -1 : 0 })
 
         // 初始化
         this.setupRandomGenerator()
@@ -79,14 +79,13 @@ class AnimationController {
         this.timeline
             .to(this, {
                 time: 1,
-                duration: 15,
-                repeat: -1,
+                duration: 8.5,
                 ease: "none",
                 onUpdate: () => this.render()
             })
     }
 
-    // 缓动函数
+    // 缓动函数.5
     public ease(p: number, g: number): number {
         if (p < 0.5)
             return 0.5 * Math.pow(2 * p, g)
@@ -388,7 +387,11 @@ class Star {
     }
 }
 
-export function SpiralAnimation() {
+interface SpiralAnimationProps {
+    loop?: boolean
+}
+
+export function SpiralAnimation({ loop = true }: SpiralAnimationProps = {}) {
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const animationRef = useRef<AnimationController | null>(null)
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
@@ -431,7 +434,7 @@ export function SpiralAnimation() {
         ctx.scale(dpr, dpr)
 
         // 创建动画控制器
-        animationRef.current = new AnimationController(canvas, ctx, dpr, size)
+        animationRef.current = new AnimationController(canvas, ctx, dpr, size, loop)
 
         return () => {
             // 清理动画

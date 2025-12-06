@@ -4,6 +4,7 @@ import './globals.css'
 import '../styles/voxel-slider.css'
 import { ConditionalNav } from '@/components/layout/conditional-nav'
 import { Footer } from '@/components/layout/footer'
+import { WelcomeScreen } from '@/components/ui/welcome-screen'
 import { seo } from '@/data/seo'
 import { SEOJsonLd, generateWebSiteSchema, generatePersonSchema } from '@/components/seo/SEOJsonLd'
 
@@ -120,6 +121,7 @@ export default function RootLayout({
         <SEOJsonLd data={personSchema} />
       </head>
       <body className={syne.className}>
+        <WelcomeScreen />
         {/* <Header /> */}
         <ConditionalNav />
         {children}
