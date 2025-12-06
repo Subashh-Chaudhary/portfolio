@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { motion } from 'framer-motion'
 import { personalInfo } from '@/data/personal'
 import { ArrowRight, Terminal, Cpu, Network, Code2 } from 'lucide-react'
@@ -16,11 +17,17 @@ const HeroVoxelPortrait = dynamic(
 // Scramble text effect component - optimized with requestAnimationFrame
 const ScrambleText = ({ text }: { text: string }) => {
     const [display, setDisplay] = useState(text)
+    const animationRef = React.useRef<number | null>(null)
     const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?'
 
     const scramble = () => {
+        // Cancel any ongoing animation first
+        if (animationRef.current !== null) {
+            cancelAnimationFrame(animationRef.current)
+            animationRef.current = null
+        }
+
         let iterations = 0
-        let animationFrameId: number
 
         const animate = () => {
             setDisplay(
@@ -35,18 +42,24 @@ const ScrambleText = ({ text }: { text: string }) => {
 
             if (iterations < text.length) {
                 iterations += 1 / 3
-                animationFrameId = requestAnimationFrame(animate)
+                animationRef.current = requestAnimationFrame(animate)
+            } else {
+                // Animation complete, clear the ref
+                animationRef.current = null
             }
         }
 
-        animationFrameId = requestAnimationFrame(animate)
-
-        return () => {
-            if (animationFrameId) {
-                cancelAnimationFrame(animationFrameId)
-            }
-        }
+        animationRef.current = requestAnimationFrame(animate)
     }
+
+    // Cleanup on unmount
+    React.useEffect(() => {
+        return () => {
+            if (animationRef.current !== null) {
+                cancelAnimationFrame(animationRef.current)
+            }
+        }
+    }, [])
 
     return (
         <span onMouseEnter={scramble} className="cursor-default">
