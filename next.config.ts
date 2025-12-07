@@ -30,6 +30,9 @@ const nextConfig: NextConfig = {
     'lucide-react': {
       transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
     },
+    'react-icons': {
+      transform: 'react-icons/{{member}}',
+    },
   },
 
   // Production optimizations
@@ -38,7 +41,11 @@ const nextConfig: NextConfig = {
   // Experimental features for performance
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['framer-motion', 'lucide-react', '@react-three/fiber', '@react-three/drei'],
+    optimizePackageImports: ['framer-motion', 'lucide-react', '@react-three/fiber', '@react-three/drei', 'react-icons'],
+    // Enable server optimizations
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
   },
 
   // Webpack optimizations
@@ -91,6 +98,18 @@ const nextConfig: NextConfig = {
           },
         },
       };
+    }
+
+    // Add bundle analyzer in development
+    if (process.env.ANALYZE === 'true') {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          reportFilename: isServer ? '../analyze/server.html' : './analyze/client.html',
+          openAnalyzer: true,
+        })
+      );
     }
 
     return config;

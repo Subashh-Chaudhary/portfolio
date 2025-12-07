@@ -2,36 +2,33 @@
 
 import { useEffect, useState } from 'react'
 import { SpiralAnimation } from './spiral-animation'
-import { gsap } from 'gsap'
 
 export function WelcomeScreen() {
-    const [mounted, setMounted] = useState(false)
-    const [shouldRender, setShouldRender] = useState(true)
+    const [shouldRender, setShouldRender] = useState(true) // Start as true to prevent flash
     const [isVisible, setIsVisible] = useState(true)
     const [startVisible, setStartVisible] = useState(false)
 
     useEffect(() => {
-        setMounted(true)
-
-        // Check if user has visited before
+        // Check if user has visited before immediately
         const hasVisited = localStorage.getItem('hasVisitedBefore')
 
         if (hasVisited) {
-            // User has visited before, don't show welcome screen
+            // User has visited before, hide immediately
             setShouldRender(false)
             setIsVisible(false)
             return
         }
 
+        // User hasn't visited, show welcome screen
         // Fade in the start button after animation loads
         const buttonTimer = setTimeout(() => {
             setStartVisible(true)
         }, 2000)
 
-        // Auto-hide the welcome screen after animation completes (9 seconds for one full cycle)
+        // Auto-hide the welcome screen after animation completes
         const autoHideTimer = setTimeout(() => {
             handleExit()
-        }, 8500) // 9 seconds - one full animation cycle
+        }, 8500)
 
         return () => {
             clearTimeout(buttonTimer)
@@ -40,18 +37,15 @@ export function WelcomeScreen() {
     }, [])
 
     const handleExit = () => {
-        // Fade out animation
-        gsap.to('.welcome-screen-container', {
-            opacity: 0,
-            duration: 1,
-            ease: 'power2.inOut',
-            onComplete: () => {
-                setIsVisible(false)
-                setShouldRender(false)
-                // Mark that user has visited
-                localStorage.setItem('hasVisitedBefore', 'true')
-            }
-        })
+        // Use CSS transition instead of GSAP for lighter bundle
+        setIsVisible(false)
+
+        // Wait for fade out animation to complete
+        setTimeout(() => {
+            setShouldRender(false)
+            // Mark that user has visited
+            localStorage.setItem('hasVisitedBefore', 'true')
+        }, 1000) // Match transition duration
     }
 
     // Don't render if user has visited before

@@ -6,12 +6,19 @@ import { personalInfo } from '@/data/personal'
 import { ArrowRight, Terminal, Cpu, Network, Code2 } from 'lucide-react'
 import { staggerContainer, staggerItem } from '@/lib/animations/framer/variants'
 import dynamic from 'next/dynamic'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-// Dynamically import the voxel portrait to avoid SSR issues
+// Dynamically import the voxel portrait to avoid SSR issues and reduce initial bundle
 const HeroVoxelPortrait = dynamic(
     () => import('@/components/three/HeroVoxelPortrait').then(mod => mod.HeroVoxelPortrait),
-    { ssr: false }
+    {
+        ssr: false,
+        loading: () => (
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-transparent via-blue-900/5 to-black">
+                <div className="w-16 h-16 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin" />
+            </div>
+        )
+    }
 )
 
 // Scramble text effect component - optimized with requestAnimationFrame
@@ -41,7 +48,7 @@ const ScrambleText = ({ text }: { text: string }) => {
             )
 
             if (iterations < text.length) {
-                iterations += 1 / 3
+                iterations += 1 / 2 // Reduced from 1/3 for faster, smoother animation
                 animationRef.current = requestAnimationFrame(animate)
             } else {
                 // Animation complete, clear the ref
@@ -71,11 +78,31 @@ const ScrambleText = ({ text }: { text: string }) => {
 export function HeroSection() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0, pixelX: 0, pixelY: 0 })
     const [isHoveringVoxels, setIsHoveringVoxels] = useState(false)
+    const [shouldLoadVoxels, setShouldLoadVoxels] = useState(false)
+    const sectionRef = useRef<HTMLElement>(null)
+
+    // Intersection observer to lazy load 3D portrait
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    setShouldLoadVoxels(true)
+                }
+            },
+            { threshold: 0.1 }
+        )
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current)
+        }
+
+        return () => observer.disconnect()
+    }, [])
 
     useEffect(() => {
         let rafId: number
         let lastTime = 0
-        const throttleDelay = 16 // ~60fps
+        const throttleDelay = 32 // Increased from 16ms to 32ms (~30fps, sufficient for smooth tracking)
 
         const handleMouseMove = (e: MouseEvent) => {
             const currentTime = Date.now()
@@ -103,6 +130,7 @@ export function HeroSection() {
 
     return (
         <motion.section
+            ref={sectionRef}
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -145,18 +173,20 @@ export function HeroSection() {
             </div>
 
             {/* Voxel Portrait - Full Screen Background */}
-            <motion.div
-                variants={staggerItem}
-                className="absolute inset-0 z-0 pointer-events-auto ml-0 sm:ml-[5%] md:ml-[10%] lg:ml-[15%] xl:ml-[15%] 2xl:ml-[12%] cursor-none"
-                onMouseEnter={() => setIsHoveringVoxels(true)}
-                onMouseLeave={() => setIsHoveringVoxels(false)}
-            >
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/5 to-black z-10 pointer-events-none" />
-                <div className="relative w-full h-full">
-                    <HeroVoxelPortrait />
-                </div>
-
-            </motion.div>
+            {shouldLoadVoxels && (
+                <motion.div
+                    variants={staggerItem}
+                    className="absolute inset-0 z-0 pointer-events-auto ml-0 sm:ml-[5%] md:ml-[10%] lg:ml-[15%] xl:ml-[15%] 2xl:ml-[12%] cursor-none"
+                    onMouseEnter={() => setIsHoveringVoxels(true)}
+                    onMouseLeave={() => setIsHoveringVoxels(false)}
+                    style={{ willChange: 'transform' }}
+                >
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/5 to-black z-10 pointer-events-none" />
+                    <div className="relative w-full h-full">
+                        <HeroVoxelPortrait />
+                    </div>
+                </motion.div>
+            )}
 
             {/* HUD Elements */}
             <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-8 lg:left-8 xl:top-8 xl:left-8 2xl:top-10 2xl:left-10 z-20 font-mono text-[5px] sm:text-[7px] md:text-xs lg:text-xs xl:text-xs 2xl:text-xs text-blue-400/60 hidden md:block">
@@ -188,26 +218,26 @@ export function HeroSection() {
                     </motion.div>
 
                     {/* Massive Typography */}
-                    <motion.div variants={staggerItem} className="backdrop-blur-sm md:backdrop-blur-none bg-black/20 md:bg-transparent p-4 md:p-0 rounded-lg md:rounded-none w-fit">
+                    <motion.div variants={staggerItem} className="backdrop-blur-sm md:backdrop-blur-none bg-black/20 md:bg-transparent p-4 md:p-0 rounded-lg md:rounded-none w-fit" style={{ willChange: 'transform, opacity' }}>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black tracking-tighter text-white mix-blend-difference leading-[0.9]">
                             <div className="flex flex-col">
-                                <span className="hover:text-blue-500 transition-colors duration-300">
+                                <span className="hover:text-blue-500 transition-colors duration-300" style={{ willChange: 'color' }}>
                                     <ScrambleText text="SUBASH" />
                                 </span>
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-white hover:from-blue-400 hover:to-purple-400 transition-all duration-500">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-white hover:from-blue-400 hover:to-purple-400 transition-all duration-500" style={{ willChange: 'background-image' }}>
                                     THARU
                                 </span>
                             </div>
                         </h1>
-
-                        {/* Floating Tech Icons */}
-                        <div className="absolute right-48 lg:right-56 xl:right-72 2xl:right-96 top-22 flex flex-col gap-3 lg:gap-4 xl:gap-4 2xl:gap-5 text-white/40 hidden lg:flex">
-                            <Code2 className="w-5 h-5 lg:w-6 lg:h-6 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8" />
-                            <Terminal className="w-5 h-5 lg:w-6 lg:h-6 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8" />
-                            <Network className="w-5 h-5 lg:w-6 lg:h-6 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8" />
-                            <Cpu className="w-5 h-5 lg:w-6 lg:h-6 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8" />
-                        </div>
                     </motion.div>
+
+                    {/* Floating Tech Icons */}
+                    <div className="absolute right-48 lg:right-56 xl:right-72 2xl:right-96 top-22 flex flex-col gap-3 lg:gap-4 xl:gap-4 2xl:gap-5 text-white/40 hidden lg:flex">
+                        <Code2 className="w-5 h-5 lg:w-6 lg:h-6 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8" />
+                        <Terminal className="w-5 h-5 lg:w-6 lg:h-6 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8" />
+                        <Network className="w-5 h-5 lg:w-6 lg:h-6 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8" />
+                        <Cpu className="w-5 h-5 lg:w-6 lg:h-6 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8" />
+                    </div>
 
                     {/* Bio / Description */}
                     <motion.p

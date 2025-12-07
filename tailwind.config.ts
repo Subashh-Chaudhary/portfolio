@@ -7,6 +7,20 @@ const config: Config = {
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
+    // Safelist dynamic classes used in animations to prevent purging
+    safelist: [
+        'animate-spin',
+        'animate-pulse',
+        'animate-float',
+        'animate-fade-in',
+        'animate-fade-up',
+        'animate-slide-in-left',
+        'animate-slide-in-right',
+        'animate-shimmer',
+        'mix-blend-difference',
+        'bg-clip-text',
+        'text-transparent',
+    ],
     theme: {
         container: {
             center: true,

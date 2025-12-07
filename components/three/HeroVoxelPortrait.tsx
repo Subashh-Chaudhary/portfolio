@@ -16,10 +16,25 @@ interface HeroVoxelPortraitProps {
 export function HeroVoxelPortrait({ className = '' }: HeroVoxelPortraitProps) {
     const [isLoading, setIsLoading] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
+    const [imagePath, setImagePath] = useState('/images/profile.jpg');
 
     useEffect(() => {
         // Detect mobile devices for performance optimization
         setIsMobile(window.innerWidth < 768);
+
+        // Check for WebP support and use WebP if available
+        const checkWebPSupport = () => {
+            const elem = document.createElement('canvas');
+            if (elem.getContext && elem.getContext('2d')) {
+                // Check if browser supports WebP
+                const isWebPSupported = elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+                if (isWebPSupported) {
+                    setImagePath('/images/profile.webp');
+                }
+            }
+        };
+
+        checkWebPSupport();
 
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
@@ -62,7 +77,7 @@ export function HeroVoxelPortrait({ className = '' }: HeroVoxelPortraitProps) {
                 onCreated={() => setIsLoading(false)}
             >
                 <VoxelScene
-                    imagePath="/images/profile.jpg"
+                    imagePath={imagePath}
                     config={config}
                 />
             </Canvas>

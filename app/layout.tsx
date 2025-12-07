@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Syne } from 'next/font/google'
 import './globals.css'
-import '../styles/voxel-slider.css'
 import { ConditionalNav } from '@/components/layout/conditional-nav'
 import { Footer } from '@/components/layout/footer'
 import { WelcomeScreen } from '@/components/ui/welcome-screen'
