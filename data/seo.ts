@@ -56,11 +56,11 @@ export const seo = {
     linkedin: "https://www.linkedin.com/in/developer-subash/"
   },
 
-  // Recommended: convert OG images to absolute URL
-  ogImage: "https://subashtharu.com.np/images/og/og-image.jpg",
-  twitterImage: "https://subashtharu.com.np/images/og/twitter-card.jpg",
-  logo: "https://subashtharu.com.np/images/logos/logo.png",
-  socialBanner: "https://subashtharu.com.np/images/og/social-banner.jpg",
+  // OG images and logo paths (Next.js will prepend the base URL from metadataBase)
+  ogImage: "/images/og/og-image.jpg",
+  twitterImage: "/images/og/twitter-card.jpg",
+  logo: "/android-chrome-512x512.png", // High-res logo for search engines
+  socialBanner: "/images/og/social-banner.jpg",
 
   pages: {
     home: {

@@ -107,6 +107,20 @@ export default function RootLayout({
     ],
   });
 
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: seo.siteName,
+    url: seo.siteUrl,
+    logo: `${seo.siteUrl}${seo.logo}`,
+    description: seo.siteDescription,
+    sameAs: [
+      seo.author.github,
+      seo.author.linkedin,
+      seo.author.twitter,
+    ],
+  };
+
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <head>
@@ -123,6 +137,7 @@ export default function RootLayout({
         {/* JSON-LD structured data - non-blocking */}
         <SEOJsonLd data={webSiteSchema} />
         <SEOJsonLd data={personSchema} />
+        <SEOJsonLd data={organizationSchema} />
       </head>
       <body className={syne.className}>
         <WelcomeScreen />
