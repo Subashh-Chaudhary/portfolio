@@ -19,14 +19,6 @@ export function generatePageMetadata(pageKey: PageKey): Metadata {
       description: pageData.description,
       url: `${seo.siteUrl}${pageUrl}`,
       siteName: seo.siteName,
-      images: [
-        {
-          url: `${seo.siteUrl}${seo.ogImage}`,
-          width: 1200,
-          height: 630,
-          alt: pageData.title,
-        }
-      ],
       locale: 'en_US',
       type: 'website',
     },
@@ -34,7 +26,6 @@ export function generatePageMetadata(pageKey: PageKey): Metadata {
       card: 'summary_large_image',
       title: pageData.title,
       description: pageData.description,
-      images: [`${seo.siteUrl}${seo.twitterImage}`],
       creator: seo.author.twitter,
     }
   };

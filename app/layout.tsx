@@ -42,22 +42,12 @@ export const metadata: Metadata = {
     title: seo.siteName,
     description: seo.siteDescription,
     siteName: seo.siteName,
-    images: [
-      {
-        url: `${seo.siteUrl}${seo.ogImage}`,
-        width: 1200,
-        height: 630,
-        alt: seo.siteName,
-        type: 'image/jpeg',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: seo.siteName,
     description: seo.siteDescription,
     creator: seo.author.twitter,
-    images: [`${seo.siteUrl}${seo.twitterImage}`],
   },
   robots: {
     index: true,

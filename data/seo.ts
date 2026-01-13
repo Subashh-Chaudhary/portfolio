@@ -5,47 +5,47 @@ export const seo = {
     "Portfolio of Subash Tharu - Full Stack Software Developer from Nepal specializing in React, Next.js, and modern web technologies. I build scalable applications, beautiful UI/UX, and solve real-world problems with code.",
   defaultKeywords: [
     "Subash", "Tharu", "Subash C Tharu",
-  "Subash Tharu", "Subash Chaudhary", "Full Stack Developer Nepal", "Next.js Developer Nepal",
-  "React Developer Nepal", "Web Developer Nepal", "Software Engineer Nepal",
-  "Full Stack Software Developer", "JavaScript Developer", "TypeScript Developer",
-  "Backend Developer", "Frontend Developer", "Node.js Developer", "Web Portfolio",
-  "Hire Web Developer Nepal", "Remote Developer", "Freelance Web Developer",
-  "Modern Web Apps", "UI/UX Developer", "Engineering Portfolio",
+    "Subash Tharu", "Subash Chaudhary", "Full Stack Developer Nepal", "Next.js Developer Nepal",
+    "React Developer Nepal", "Web Developer Nepal", "Software Engineer Nepal",
+    "Full Stack Software Developer", "JavaScript Developer", "TypeScript Developer",
+    "Backend Developer", "Frontend Developer", "Node.js Developer", "Web Portfolio",
+    "Hire Web Developer Nepal", "Remote Developer", "Freelance Web Developer",
+    "Modern Web Apps", "UI/UX Developer", "Engineering Portfolio",
 
-  // Newly added keywords
-  "Hire Developer Nepal", "Hire Full Stack Developer Nepal", "Hire React Developer Nepal",
-  "Hire Next.js Developer", "Hire Remote Developer", "Remote Software Engineer Nepal",
-  "Remote Web Developer Nepal", "Offshore Developer Nepal", "Outsource Software Development Nepal",
-  "Software Development Nepal", "IT Talent Nepal", "Tech Talent Nepal",
+    // Newly added keywords
+    "Hire Developer Nepal", "Hire Full Stack Developer Nepal", "Hire React Developer Nepal",
+    "Hire Next.js Developer", "Hire Remote Developer", "Remote Software Engineer Nepal",
+    "Remote Web Developer Nepal", "Offshore Developer Nepal", "Outsource Software Development Nepal",
+    "Software Development Nepal", "IT Talent Nepal", "Tech Talent Nepal",
 
-  // AI/ML Specialization keywords
-  "AI Developer Nepal", "AI/ML Developer Nepal", "Machine Learning Nepal",
-  "Artificial Intelligence Developer Nepal", "Deep Learning Developer Nepal",
-  "AI Engineer Nepal", "ML Engineer Nepal", "AI/ML Portfolio", "Generative AI Developer",
-  "AI Applications Developer", "LLM Integrations Developer",
-  // Enthusiast keywords
-  "AI/ML Enthusiast", "AI Enthusiast", "Machine Learning Enthusiast",
+    // AI/ML Specialization keywords
+    "AI Developer Nepal", "AI/ML Developer Nepal", "Machine Learning Nepal",
+    "Artificial Intelligence Developer Nepal", "Deep Learning Developer Nepal",
+    "AI Engineer Nepal", "ML Engineer Nepal", "AI/ML Portfolio", "Generative AI Developer",
+    "AI Applications Developer", "LLM Integrations Developer",
+    // Enthusiast keywords
+    "AI/ML Enthusiast", "AI Enthusiast", "Machine Learning Enthusiast",
 
-  // DevOps Specialization keywords
-  "DevOps Engineer Nepal", "CI/CD Developer Nepal", "Cloud Engineer Nepal",
-  "AWS Developer Nepal", "Docker Kubernetes Developer", "Infrastructure Automation Nepal",
-  "DevOps Services Nepal", "Hire DevOps Nepal", "Cloud Deployment Nepal",
-  "Site Reliability Engineering", "SRE Engineer Nepal",
+    // DevOps Specialization keywords
+    "DevOps Engineer Nepal", "CI/CD Developer Nepal", "Cloud Engineer Nepal",
+    "AWS Developer Nepal", "Docker Kubernetes Developer", "Infrastructure Automation Nepal",
+    "DevOps Services Nepal", "Hire DevOps Nepal", "Cloud Deployment Nepal",
+    "Site Reliability Engineering", "SRE Engineer Nepal",
 
-  // Portfolio search intent
-  "Portfolio Website Nepal", "Developer Portfolio Nepal", "Personal Portfolio Developer",
-  "Software Developer Portfolio", "Full Stack Portfolio Website",
+    // Portfolio search intent
+    "Portfolio Website Nepal", "Developer Portfolio Nepal", "Personal Portfolio Developer",
+    "Software Developer Portfolio", "Full Stack Portfolio Website",
 
-  // Career + hiring combinations
-  "Hire AI Developer", "Hire ML Engineer", "Hire DevOps Engineer",
-  "Hire Remote Software Developer", "Hire Next.js Expert", "Hire React Expert",
-  "Looking for Full Stack Developer", "Senior Software Developer Nepal",
-  "Nepal Full Stack Developer for Hire",
+    // Career + hiring combinations
+    "Hire AI Developer", "Hire ML Engineer", "Hire DevOps Engineer",
+    "Hire Remote Software Developer", "Hire Next.js Expert", "Hire React Expert",
+    "Looking for Full Stack Developer", "Senior Software Developer Nepal",
+    "Nepal Full Stack Developer for Hire",
 
-  // Niches
-  "SaaS Developer Nepal", "Startup Developer Nepal", "MERN Developer Nepal",
-  "IT Professional Nepal", "Tech Industry Nepal"
-] as string[],
+    // Niches
+    "SaaS Developer Nepal", "Startup Developer Nepal", "MERN Developer Nepal",
+    "IT Professional Nepal", "Tech Industry Nepal"
+  ] as string[],
 
 
   author: {
@@ -57,8 +57,8 @@ export const seo = {
   },
 
   // OG images and logo paths (Next.js will prepend the base URL from metadataBase)
-  ogImage: "/images/og/og-image.jpg",
-  twitterImage: "/images/og/twitter-card.jpg",
+  ogImage: "/images/og/og-image.png",
+  twitterImage: "/images/og/twitter-card.png",
   logo: "/android-chrome-512x512.png", // High-res logo for search engines
   socialBanner: "/images/og/social-banner.jpg",
 
