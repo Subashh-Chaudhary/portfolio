@@ -53,7 +53,7 @@ export function ContactFormSection() {
     }
 
     return (
-        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-black overflow-hidden">
+        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#1a1814] overflow-hidden">
             {/* Animated Gradient Background */}
             <div className="absolute inset-0 z-0 opacity-20">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-green-500/10 to-lime-500/10" />
@@ -120,7 +120,7 @@ export function ContactFormSection() {
                     transition={{ duration: 0.6 }}
                     className="max-w-3xl mx-auto"
                 >
-                    <div className="group relative bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-transparent transition-all duration-300 overflow-hidden">
+                    <div className="group relative bg-gradient-to-br from-[#2c2825] to-[#1f1b18] border border-[#3d3530] hover:border-transparent transition-all duration-300 overflow-hidden">
                         {/* Gradient Border on Hover */}
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-green-500/20 to-lime-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -144,7 +144,7 @@ export function ContactFormSection() {
                                     value={formState.name}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all font-mono text-sm"
+                                    className="w-full px-4 py-3 bg-white/5 border border-[#3d3530] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all font-mono text-sm"
                                     placeholder="John Doe"
                                 />
                             </div>
@@ -162,7 +162,7 @@ export function ContactFormSection() {
                                     value={formState.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all font-mono text-sm"
+                                    className="w-full px-4 py-3 bg-white/5 border border-[#3d3530] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all font-mono text-sm"
                                     placeholder="john@example.com"
                                 />
                             </div>
@@ -180,7 +180,7 @@ export function ContactFormSection() {
                                     onChange={handleChange}
                                     required
                                     rows={6}
-                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all resize-none font-mono text-sm"
+                                    className="w-full px-4 py-3 bg-white/5 border border-[#3d3530] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all resize-none font-mono text-sm"
                                     placeholder="Tell me about your project or idea..."
                                 />
                             </div>
@@ -259,7 +259,7 @@ export function ContactFormSection() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.8 }}
-                    className="mt-8 sm:mt-10 md:mt-12 pt-4 sm:pt-6 md:pt-8 border-t border-white/10"
+                    className="mt-8 sm:mt-10 md:mt-12 pt-4 sm:pt-6 md:pt-8 border-t border-[#3d3530]"
                 >
                     <div className="font-mono text-[10px] sm:text-xs text-gray-600 flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <span className="text-green-500">$</span>

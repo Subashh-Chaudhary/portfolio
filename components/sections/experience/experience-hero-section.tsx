@@ -58,7 +58,7 @@ export function ExperienceHeroSection() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="relative py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 bg-black overflow-hidden"
+            className="relative py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 bg-[#1a1814] overflow-hidden"
         >
             {/* Animated Gradient Background */}
             <div className="absolute inset-0 z-0 opacity-30">
@@ -207,7 +207,7 @@ export function ExperienceHeroSection() {
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
                                 whileHover={{ y: -5, scale: 1.02 }}
-                                className="group relative bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-transparent transition-all duration-300 p-4 sm:p-5 md:p-6 overflow-hidden"
+                                className="group relative bg-gradient-to-br from-[#2c2825] to-[#1f1b18] border border-[#3d3530] hover:border-transparent transition-all duration-300 p-4 sm:p-5 md:p-6 overflow-hidden"
                             >
                                 {/* Gradient Border on Hover */}
                                 <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
