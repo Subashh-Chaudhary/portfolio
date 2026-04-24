@@ -19,6 +19,7 @@ export interface Project {
 }
 
 export type ProjectCategory =
+    | 'fullstack'
     | 'web-app'
     | 'mobile-app'
     | 'api'

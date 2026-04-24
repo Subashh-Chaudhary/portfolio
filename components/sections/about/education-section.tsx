@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { education } from '@/data/education'
+import Image from 'next/image'
+import { certifications, education } from '@/data/education'
 import { GraduationCap, Calendar, Award, MapPin, TrendingUp } from 'lucide-react'
 
 export function EducationSection() {
@@ -118,6 +119,17 @@ export function EducationSection() {
                                                 {edu.field}
                                             </p>
                                         </div>
+                                        {edu.logo && (
+                                            <div className="hidden md:flex items-center justify-center rounded-xl border border-white/20 bg-white p-2 mr-3 shrink-0">
+                                                <Image
+                                                    src={edu.logo}
+                                                    alt={`${edu.institution} logo`}
+                                                    width={52}
+                                                    height={52}
+                                                    className="h-10 w-10 object-contain sm:h-12 sm:w-12"
+                                                />
+                                            </div>
+                                        )}
                                         {edu.grade && (
                                             <motion.div
                                                 className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/30 px-3 py-1.5 rounded-lg group-hover:from-purple-500/20 group-hover:to-blue-500/20 transition-all"
@@ -227,6 +239,64 @@ export function EducationSection() {
                             </motion.div>
                         </motion.div>
                     ))}
+                </div>
+
+                {/* Certifications */}
+                <div className="mt-10 sm:mt-12 md:mt-14 lg:mt-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="mb-5 sm:mb-6 md:mb-8"
+                    >
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight">
+                            Certifications
+                        </h3>
+                        <p className="text-xs sm:text-sm text-gray-400 mt-1 font-mono">
+                            VERIFIED_CREDENTIALS
+                        </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+                        {certifications.map((cert, index) => (
+                            <motion.a
+                                key={cert.id}
+                                href={cert.credentialUrl || '#'}
+                                target={cert.credentialUrl ? '_blank' : undefined}
+                                rel={cert.credentialUrl ? 'noreferrer noopener' : undefined}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.08, duration: 0.5 }}
+                                className="group relative block overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-gray-900 to-black p-4 sm:p-5 md:p-6 hover:border-blue-400/40 transition-colors"
+                            >
+                                <div className="flex items-start gap-3 sm:gap-4">
+                                    {cert.logo && (
+                                        <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg border border-white/20 bg-white shrink-0 p-2">
+                                            <Image
+                                                src={cert.logo}
+                                                alt={`${cert.issuer} logo`}
+                                                width={56}
+                                                height={56}
+                                                className="h-full w-full object-contain"
+                                            />
+                                        </div>
+                                    )}
+                                    <div className="min-w-0">
+                                        <h4 className="text-sm sm:text-base md:text-lg font-semibold text-white leading-snug group-hover:text-blue-300 transition-colors">
+                                            {cert.name}
+                                        </h4>
+                                        <p className="text-xs sm:text-sm text-purple-300 mt-1">
+                                            {cert.issuer}
+                                        </p>
+                                        <p className="text-[11px] sm:text-xs text-gray-400 mt-2 font-mono">
+                                            Issued {cert.issueDate.split('-')[0]}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.a>
+                        ))}
+                    </div>
                 </div>
             </div>
 

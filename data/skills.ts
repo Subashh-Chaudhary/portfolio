@@ -1,57 +1,51 @@
 import { Skill, SkillGroup } from '@/types'
-
+ 
 export const skills: Skill[] = [
-    // Frontend
-    { id: '1', name: 'React', category: 'frontend', proficiency: 95, yearsOfExperience: 4, icon: 'SiReact' },
-    { id: '2', name: 'Next.js', category: 'frontend', proficiency: 90, yearsOfExperience: 3, icon: 'SiNextdotjs' },
-    { id: '3', name: 'TypeScript', category: 'frontend', proficiency: 90, yearsOfExperience: 3, icon: 'SiTypescript' },
-    { id: '4', name: 'Tailwind CSS', category: 'frontend', proficiency: 95, yearsOfExperience: 3, icon: 'SiTailwindcss' },
-    { id: '5', name: 'GSAP', category: 'frontend', proficiency: 80, yearsOfExperience: 2, icon: 'SiGreensock' },
-    { id: '6', name: 'Framer Motion', category: 'frontend', proficiency: 85, yearsOfExperience: 2, icon: 'SiFramer' },
-    { id: '7', name: 'HTML/CSS', category: 'frontend', proficiency: 95, yearsOfExperience: 5, icon: 'SiHtml5' },
-    { id: '8', name: 'JavaScript', category: 'frontend', proficiency: 95, yearsOfExperience: 5, icon: 'SiJavascript' },
-
-    // Backend
-    { id: '9', name: 'Node.js', category: 'backend', proficiency: 90, yearsOfExperience: 4, icon: 'SiNodedotjs' },
-    { id: '10', name: 'Express.js', category: 'backend', proficiency: 90, yearsOfExperience: 4, icon: 'SiExpress' },
-    { id: '11', name: 'NestJS', category: 'backend', proficiency: 85, yearsOfExperience: 2, icon: 'SiNestjs' },
-    { id: '12', name: 'GraphQL', category: 'backend', proficiency: 80, yearsOfExperience: 2, icon: 'SiGraphql' },
-    { id: '13', name: 'REST API', category: 'backend', proficiency: 95, yearsOfExperience: 4, icon: 'SiPostman' },
-
-    // Database
-    { id: '14', name: 'PostgreSQL', category: 'database', proficiency: 85, yearsOfExperience: 3, icon: 'SiPostgresql' },
-    { id: '15', name: 'MongoDB', category: 'database', proficiency: 90, yearsOfExperience: 3, icon: 'SiMongodb' },
-    { id: '16', name: 'MySQL', category: 'database', proficiency: 80, yearsOfExperience: 3, icon: 'SiMysql' },
-    { id: '17', name: 'Prisma', category: 'database', proficiency: 85, yearsOfExperience: 2, icon: 'SiPrisma' },
-    { id: '18', name: 'Redis', category: 'database', proficiency: 75, yearsOfExperience: 2, icon: 'SiRedis' },
-
-    // DevOps
-    { id: '19', name: 'Docker', category: 'devops', proficiency: 80, yearsOfExperience: 2, icon: 'SiDocker' },
-    { id: '20', name: 'AWS', category: 'devops', proficiency: 75, yearsOfExperience: 2, icon: 'SiAmazonaws' },
-    { id: '21', name: 'CI/CD', category: 'devops', proficiency: 80, yearsOfExperience: 2, icon: 'SiGithubactions' },
-    { id: '22', name: 'Vercel', category: 'devops', proficiency: 90, yearsOfExperience: 3, icon: 'SiVercel' },
-
+    // Frontend — real skills from CV + work experience
+    { id: '1',  name: 'React.js',       category: 'frontend', proficiency: 85, yearsOfExperience: 2, icon: 'SiReact' },
+    { id: '2',  name: 'Next.js',        category: 'frontend', proficiency: 80, yearsOfExperience: 2, icon: 'SiNextdotjs' },
+    { id: '3',  name: 'TypeScript',     category: 'frontend', proficiency: 85, yearsOfExperience: 2, icon: 'SiTypescript' },
+    { id: '4',  name: 'JavaScript',     category: 'frontend', proficiency: 90, yearsOfExperience: 3, icon: 'SiJavascript' },
+    { id: '5',  name: 'React Native',   category: 'frontend', proficiency: 70, yearsOfExperience: 1, icon: 'SiReact' },
+    { id: '6',  name: 'HTML5 / CSS3',   category: 'frontend', proficiency: 90, yearsOfExperience: 3, icon: 'SiHtml5' },
+    { id: '7',  name: 'Tailwind CSS',   category: 'frontend', proficiency: 85, yearsOfExperience: 2, icon: 'SiTailwindcss' },
+ 
+    // Backend — primary strength from CV
+    { id: '8',  name: 'Node.js',        category: 'backend', proficiency: 80, yearsOfExperience: 2, icon: 'SiNodedotjs' },
+    { id: '9',  name: 'NestJS',         category: 'backend', proficiency: 88, yearsOfExperience: 2, icon: 'SiNestjs' },
+    { id: '10', name: 'Express.js',     category: 'backend', proficiency: 85, yearsOfExperience: 2, icon: 'SiExpress' },
+    { id: '11', name: 'Go',             category: 'backend', proficiency: 65, yearsOfExperience: 1, icon: 'SiGo' },
+    { id: '12', name: 'FastAPI',        category: 'backend', proficiency: 64, yearsOfExperience: 1, icon: 'SiFastapi' },
+    { id: '13', name: 'REST API Design',category: 'backend', proficiency: 92, yearsOfExperience: 2, icon: 'SiPostman' },
+    { id: '14', name: 'JWT / Passport', category: 'backend', proficiency: 85, yearsOfExperience: 2, icon: 'SiJsonwebtokens' },
+    { id: '15', name: 'Python',         category: 'backend', proficiency: 70, yearsOfExperience: 1, icon: 'SiPython' },
+ 
+    // Database — strong real-world usage from CV
+    { id: '16', name: 'PostgreSQL',     category: 'database', proficiency: 88, yearsOfExperience: 2, icon: 'SiPostgresql' },
+    { id: '17', name: 'MySQL',          category: 'database', proficiency: 80, yearsOfExperience: 2, icon: 'SiMysql' },
+    { id: '18', name: 'Redis',          category: 'database', proficiency: 70, yearsOfExperience: 1, icon: 'SiRedis' },
+    { id: '19', name: 'PostGIS',        category: 'database', proficiency: 73, yearsOfExperience: 1, icon: 'SiPostgresql' },
+    { id: '20', name: 'Elasticsearch',  category: 'database', proficiency: 65, yearsOfExperience: 1, icon: 'SiElasticsearch' },
+    { id: '21', name: 'MongoDB',        category: 'database', proficiency: 68, yearsOfExperience: 1, icon: 'SiMongodb' },
+ 
+    // DevOps — real from CV
+    { id: '22', name: 'Docker',         category: 'devops', proficiency: 82, yearsOfExperience: 2, icon: 'SiDocker' },
+    { id: '23', name: 'Docker Compose', category: 'devops', proficiency: 80, yearsOfExperience: 2, icon: 'SiDocker' },
+    { id: '24', name: 'Nginx',          category: 'devops', proficiency: 75, yearsOfExperience: 2, icon: 'SiNginx' },
+    { id: '25', name: 'Linux (Ubuntu)', category: 'devops', proficiency: 78, yearsOfExperience: 2, icon: 'SiLinux' },
+    { id: '26', name: 'Traefik',        category: 'devops', proficiency: 65, yearsOfExperience: 1, icon: 'SiTraefik' },
+    {id: '27', name: 'Git / GitHub',   category: 'devops', proficiency: 92, yearsOfExperience: 3, icon: 'SiGit' },
+    {id: '28', name: 'GitHub Actions', category: 'devops', proficiency: 70, yearsOfExperience: 1, icon: 'SiGithubactions' },
+ 
     // Tools
-    { id: '23', name: 'Git', category: 'tools', proficiency: 95, yearsOfExperience: 5, icon: 'SiGit' },
-    { id: '24', name: 'VS Code', category: 'tools', proficiency: 95, yearsOfExperience: 5, icon: 'SiVisualstudiocode' },
-    { id: '25', name: 'Figma', category: 'tools', proficiency: 80, yearsOfExperience: 3, icon: 'SiFigma' },
-    { id: '26', name: 'Postman', category: 'tools', proficiency: 90, yearsOfExperience: 4, icon: 'SiPostman' },
-
-    // AI / Ml
-    { id: '27', name: 'Python', category: 'ai_ml', proficiency: 85, yearsOfExperience: 2, icon: 'SiPython' },
-    { id: '28', name: 'TensorFlow', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2, icon: 'SiTensorflow' },
-    { id: '29', name: 'PyTorch', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2, icon: 'SiPytorch' },
-    { id: '30', name: 'Scikit-learn', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2, icon: 'SiScikitlearn' },
-    { id: '31', name: 'NumPy', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2, icon: 'SiNumpy' },
-    { id: '32', name: 'Pandas', category: 'ai_ml', proficiency: 80, yearsOfExperience: 2, icon: 'SiPandas' },
+    { id: '29', name: 'Postman',        category: 'tools', proficiency: 95, yearsOfExperience: 2, icon: 'SiPostman' },
+    { id: '30', name: 'Figma',          category: 'tools', proficiency: 75, yearsOfExperience: 2, icon: 'SiFigma' },
+    { id: '31', name: 'Cloudinary',     category: 'tools', proficiency: 72, yearsOfExperience: 1, icon: 'SiCloudinary' },
+    { id: '32', name: 'VS Code',        category: 'tools', proficiency: 95, yearsOfExperience: 3, icon: 'SiVisualstudiocode' },
+    { id: '33', name: 'osm2pgsql',      category: 'tools', proficiency: 68, yearsOfExperience: 1, icon: 'SiOpenstreetmap' },
 ]
-
+ 
 export const skillGroups: SkillGroup[] = [
-    {
-        category: 'frontend',
-        title: 'Frontend Development',
-        skills: skills.filter((s) => s.category === 'frontend'),
-    },
     {
         category: 'backend',
         title: 'Backend Development',
@@ -63,8 +57,13 @@ export const skillGroups: SkillGroup[] = [
         skills: skills.filter((s) => s.category === 'database'),
     },
     {
+        category: 'frontend',
+        title: 'Frontend Development',
+        skills: skills.filter((s) => s.category === 'frontend'),
+    },
+    {
         category: 'devops',
-        title: 'DevOps & Cloud',
+        title: 'DevOps & Infrastructure',
         skills: skills.filter((s) => s.category === 'devops'),
     },
     {
@@ -72,9 +71,4 @@ export const skillGroups: SkillGroup[] = [
         title: 'Tools & Software',
         skills: skills.filter((s) => s.category === 'tools'),
     },
-    {
-        category: 'ai_ml',
-        title: 'AI & Machine Learning',
-        skills: skills.filter((s) => s.category === 'ai_ml'),
-    }
 ]

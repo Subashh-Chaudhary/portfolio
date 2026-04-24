@@ -1,6 +1,3 @@
-import { SiOpensourceinitiative, SiAdobephotoshop, SiUnity } from 'react-icons/si'
-import { Camera, Gamepad2, BookOpen, Music, Palette, Code2 } from 'lucide-react'
-
 export interface Interest {
     id: string
     name: string
@@ -16,97 +13,97 @@ export interface PersonalValue {
     description: string
     icon: string
 }
-
+ 
 export const interests: Interest[] = [
     {
         id: '1',
-        name: 'Open Source',
-        description: 'Contributing to open-source projects and building tools for the developer community',
-        icon: 'SiOpensourceinitiative',
-        iconType: 'simple',
-        proficiency: 85,
-    },
-    {
-        id: '2',
-        name: 'Web Design',
-        description: 'Creating beautiful, user-centric interfaces with modern design principles',
-        icon: 'Palette',
+        name: 'Backend Architecture',
+        description: 'Designing scalable, service-oriented systems — microservices, API design patterns, and distributed backends that perform under pressure',
+        icon: 'Server',
         iconType: 'lucide',
         proficiency: 90,
     },
     {
+        id: '2',
+        name: 'Open Source',
+        description: 'Building tools for the developer community and contributing to projects that solve real problems at scale',
+        icon: 'SiOpensourceinitiative',
+        iconType: 'simple',
+        proficiency: 65,
+    },
+    {
         id: '3',
-        name: 'Photography',
-        description: 'Capturing moments and exploring creative composition techniques',
-        icon: 'Camera',
+        name: 'AI & Machine Learning',
+        description: 'Integrating ML inference services into production apps — from FastAPI orchestration to model serving pipelines',
+        icon: 'Brain',
+        iconType: 'lucide',
+        proficiency: 60,
+    },
+    {
+        id: '4',
+        name: 'Database Engineering',
+        description: 'Deep-diving into query optimization, indexing strategies, and schema design — especially PostGIS spatial databases',
+        icon: 'Database',
         iconType: 'lucide',
         proficiency: 75,
     },
     {
-        id: '4',
-        name: 'Gaming',
-        description: 'Exploring game design, mechanics, and interactive storytelling',
-        icon: 'Gamepad2',
+        id: '5',
+        name: 'DevOps & Deployment',
+        description: 'Containerizing applications with Docker, configuring Nginx reverse proxies, and maintaining production Linux servers',
+        icon: 'Container',
         iconType: 'lucide',
-        proficiency: 80,
+        proficiency: 85,
     },
     {
-        id: '5',
-        name: 'Reading',
-        description: 'Tech blogs, sci-fi novels, and continuous learning through books',
-        icon: 'BookOpen',
+        id: '6',
+        name: 'Geospatial Tech',
+        description: 'Working with OpenStreetMap data, PostGIS spatial queries, and location-based infrastructure for Nepal and beyond',
+        icon: 'Map',
         iconType: 'lucide',
         proficiency: 70,
     },
     {
-        id: '6',
-        name: 'Music Production',
-        description: 'Experimenting with digital audio workstations and sound design',
-        icon: 'Music',
+        id: '7',
+        name: 'UI Engineering',
+        description: 'Translating Figma designs into pixel-perfect React components — with a love for clean, accessible interfaces',
+        icon: 'Palette',
         iconType: 'lucide',
-        proficiency: 65,
+        proficiency: 82,
     },
     {
-        id: '7',
+        id: '8',
         name: 'Creative Coding',
-        description: 'Building generative art and interactive visualizations',
+        description: 'Building side projects that combine engineering curiosity with real-world impact — like AgriVision AI and Nepal GeoSearch',
         icon: 'Code2',
         iconType: 'lucide',
         proficiency: 88,
     },
-    {
-        id: '8',
-        name: '3D Graphics',
-        description: 'Learning 3D modeling, rendering, and real-time graphics',
-        icon: 'SiUnity',
-        iconType: 'simple',
-        proficiency: 72,
-    },
 ]
-
+ 
 export const personalValues: PersonalValue[] = [
     {
         id: '1',
         title: 'Continuous Learning',
-        description: 'Always exploring new technologies and improving skills',
+        description: 'From frontend to backend to DevOps — always expanding the stack and pushing the boundary of what I can build',
         icon: 'brain',
     },
     {
         id: '2',
-        title: 'User-Centric Design',
-        description: 'Putting users first in every design and development decision',
-        icon: 'users',
+        title: 'Real-World Impact',
+        description: 'Every line of code should solve a genuine problem — like reducing citizen inquiry times by 40% or diagnosing crop disease in 60 seconds',
+        icon: 'target',
     },
     {
         id: '3',
-        title: 'Clean Code',
-        description: 'Writing maintainable, well-documented, and efficient code',
+        title: 'Clean Architecture',
+        description: 'Layered services, decoupled modules, and maintainable codebases — because good systems outlive their builders',
         icon: 'code',
     },
     {
         id: '4',
-        title: 'Innovation',
-        description: 'Pushing boundaries and finding creative solutions to problems',
-        icon: 'lightbulb',
+        title: 'Performance-First',
+        description: 'Obsessed with fast APIs and optimized queries — reducing p95 response times by 30–70% is a craft, not just a metric',
+        icon: 'zap',
     },
 ]

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { interests } from '@/data/about'
+import { interests, personalValues } from '@/data/about'
 import { useState } from 'react'
 import * as SimpleIcons from 'react-icons/si'
 import * as LucideIcons from 'lucide-react'
@@ -16,6 +16,17 @@ const getIconComponent = (iconName: string, iconType: 'simple' | 'lucide') => {
         const IconComponent = (LucideIcons as any)[iconName]
         return IconComponent || null
     }
+}
+
+const getPersonalValueIcon = (iconName: string) => {
+    const normalized = iconName.toLowerCase()
+
+    if (normalized === 'brain') return LucideIcons.Brain
+    if (normalized === 'target') return LucideIcons.Target
+    if (normalized === 'code') return LucideIcons.Code2
+    if (normalized === 'zap') return LucideIcons.Zap
+
+    return LucideIcons.Star
 }
 
 export function InterestsSection() {
@@ -245,6 +256,75 @@ export function InterestsSection() {
                         >
                             _
                         </motion.span>
+                    </div>
+                </motion.div>
+
+                {/* Personal Values */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-8 sm:mt-10 md:mt-12 lg:mt-14"
+                >
+                    <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6">
+                        <motion.div
+                            className="h-px w-8 sm:w-12 md:w-16 bg-gradient-to-r from-blue-500 to-purple-500"
+                            animate={{ scaleX: [1, 1.2, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                        />
+                        <span className="font-mono text-blue-300 text-[10px] sm:text-xs md:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                            PERSONAL_VALUES
+                        </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+                        {personalValues.map((value, index) => {
+                            const Icon = getPersonalValueIcon(value.icon)
+
+                            return (
+                                <motion.div
+                                    key={value.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.08, duration: 0.5 }}
+                                    className="group relative bg-black border border-white/10 hover:border-purple-500/50 transition-all duration-300"
+                                >
+                                    <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                                    <div className="p-5 sm:p-6">
+                                        <div className="mb-4 sm:mb-5 text-purple-300 group-hover:text-blue-300 transition-colors">
+                                            <Icon className="w-8 h-8 sm:w-9 sm:h-9" />
+                                        </div>
+
+                                        <h3 className="font-mono text-sm sm:text-base text-white uppercase mb-2 group-hover:text-blue-300 transition-colors">
+                                            {value.title}
+                                        </h3>
+
+                                        <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                                            {value.description}
+                                        </p>
+                                    </div>
+
+                                    <div className="px-5 sm:px-6 py-1.5 sm:py-2 border-t border-white/10 bg-white/[0.02]">
+                                        <div className="flex items-center justify-between">
+                                            <span className="font-mono text-[9px] sm:text-[10px] text-gray-600 uppercase">
+                                                Core Value
+                                            </span>
+                                            <div className="flex items-center gap-1">
+                                                <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
+                                                <span className="font-mono text-[9px] sm:text-[10px] text-gray-600">
+                                                    ACTIVE
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            )
+                        })}
                     </div>
                 </motion.div>
             </div>
