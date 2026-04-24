@@ -32,7 +32,10 @@ const GlitchText = ({ text }: { text: string }) => {
 export function Loader() {
     const [progress, setProgress] = useState(0)
 
+    const [isMounted, setIsMounted] = useState(false)
+
     useEffect(() => {
+        setIsMounted(true)
         const interval = setInterval(() => {
             setProgress((prev) => {
                 if (prev >= 100) return 100
@@ -52,17 +55,17 @@ export function Loader() {
 
             {/* Floating Particles */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                {[...Array(20)].map((_, i) => (
+                {isMounted && [...Array(20)].map((_, i) => (
                     <motion.div
                         key={i}
                         className="absolute w-1 h-1 bg-purple-400/30 rounded-full"
                         initial={{
-                            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+                            x: Math.random() * window.innerWidth,
+                            y: Math.random() * window.innerHeight,
                         }}
                         animate={{
-                            y: [null, Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000)],
-                            x: [null, Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000)],
+                            y: [null, Math.random() * window.innerHeight],
+                            x: [null, Math.random() * window.innerWidth],
                         }}
                         transition={{
                             duration: Math.random() * 10 + 10,

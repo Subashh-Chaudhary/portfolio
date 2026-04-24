@@ -129,11 +129,8 @@ export function HeroSection() {
     }, [])
 
     return (
-        <motion.section
+        <section
             ref={sectionRef}
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
             className="h-screen max-h-screen flex items-center justify-center relative overflow-hidden bg-black"
         >
             {/* Custom Tech Cursor */}
@@ -175,7 +172,9 @@ export function HeroSection() {
             {/* Voxel Portrait - Full Screen Background */}
             {shouldLoadVoxels && (
                 <motion.div
-                    variants={staggerItem}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
                     className="absolute inset-0 z-0 pointer-events-auto ml-0 sm:ml-[5%] md:ml-[10%] lg:ml-[15%] xl:ml-[15%] 2xl:ml-[12%] cursor-none"
                     onMouseEnter={() => setIsHoveringVoxels(true)}
                     onMouseLeave={() => setIsHoveringVoxels(false)}
@@ -202,13 +201,17 @@ export function HeroSection() {
             </div>
 
             {/* Main Content */}
-            <div className="relative z-10 w-full h-full mx-auto px-4 sm:px-5 md:px-6 lg:px-8 xl:px-8 2xl:px-12 flex flex-col justify-center pointer-events-none select-none">
+            <div 
+                className="relative z-10 w-full h-full mx-auto px-4 sm:px-5 md:px-6 lg:px-8 xl:px-8 2xl:px-12 flex flex-col justify-center pointer-events-none select-none"
+            >
                 <div className="w-full pointer-events-auto">
 
 
                     {/* Role Tag */}
                     <motion.div
-                        variants={staggerItem}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.1 }}
                         className="flex items-center gap-3 mb-6 backdrop-blur-sm md:backdrop-blur-none bg-black/20 md:bg-transparent p-3 md:p-0 rounded-md md:rounded-none w-fit"
                     >
                         <div className="h-px w-8 sm:w-10 md:w-12 lg:w-12 xl:w-12 2xl:w-16 bg-blue-500" />
@@ -218,7 +221,11 @@ export function HeroSection() {
                     </motion.div>
 
                     {/* Massive Typography */}
-                    <motion.div variants={staggerItem} className="backdrop-blur-sm md:backdrop-blur-none bg-black/20 md:bg-transparent p-4 md:p-0 rounded-lg md:rounded-none w-fit" style={{ willChange: 'transform, opacity' }}>
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.2 }}
+                        className="backdrop-blur-sm md:backdrop-blur-none bg-black/20 md:bg-transparent p-4 md:p-0 rounded-lg md:rounded-none w-fit" style={{ willChange: 'transform, opacity' }}>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black tracking-tighter text-white mix-blend-difference leading-[0.9]">
                             <div className="flex flex-col">
                                 <span className="hover:text-blue-500 transition-colors duration-300" style={{ willChange: 'color' }}>
@@ -241,7 +248,9 @@ export function HeroSection() {
 
                     {/* Bio / Description */}
                     <motion.p
-                        variants={staggerItem}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.3 }}
                         className="mt-4 sm:mt-5 md:mt-6 lg:mt-8 xl:mt-8 2xl:mt-10 text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-xl text-gray-400 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-xl 2xl:max-w-2xl font-light border-l border-l-2 sm:border-l-2 md:border-l-2 border-white/10 pl-3 sm:pl-4 md:pl-5 lg:pl-6 xl:pl-6 2xl:pl-8 backdrop-blur-sm md:backdrop-blur-none bg-black/20 md:bg-transparent p-3 md:p-0 rounded-md md:rounded-none"
                     >
                         {personalInfo.tagline}
@@ -249,7 +258,9 @@ export function HeroSection() {
 
                     {/* Interactive Controls */}
                     <motion.div
-                        variants={staggerItem}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.4 }}
                         className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-12 2xl:mt-16 flex flex-wrap gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-6 2xl:gap-8 items-center"
                     >
                         <a
@@ -286,6 +297,6 @@ export function HeroSection() {
                     </span>
                 </div>
             </motion.div>
-        </motion.section>
+        </section>
     )
 }

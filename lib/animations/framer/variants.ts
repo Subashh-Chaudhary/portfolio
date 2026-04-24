@@ -57,9 +57,8 @@ export const scaleUp: Variants = {
 
 // Stagger container - optimized for faster perceived load
 export const staggerContainer: Variants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     visible: {
-        opacity: 1,
         transition: {
             staggerChildren: 0.05, // Reduced from 0.1s
             delayChildren: 0.1, // Reduced from 0.2s
