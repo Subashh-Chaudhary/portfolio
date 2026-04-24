@@ -1,8 +1,8 @@
 export const seo = {
-  siteName: "Subash Tharu - Node.js Backend Engineer & Full Stack Developer",
+  siteName: "Subash Tharu - Backend Engineer & Full Stack Developer",
   siteUrl: "https://subashtharu.com.np",
   siteDescription:
-    "Portfolio of Subash Tharu — Node.js Backend Engineer and Full Stack Developer from Nepal. 2.5 years building scalable REST APIs, microservices, and production-grade systems using NestJS, TypeScript, PostgreSQL, and Docker.",
+    "Portfolio of Subash Tharu — Backend Engineer and Full Stack Developer from Nepal. 2.5 years building scalable REST APIs, microservices, and production-grade systems using NestJS, TypeScript, PostgreSQL, and Docker.",
  
   defaultKeywords: [
     // Identity
@@ -73,11 +73,11 @@ export const seo = {
  
   pages: {
     home: {
-      title: "Subash Tharu — Node.js Backend Engineer & Full Stack Developer",
+      title: "Subash Tharu — Backend Engineer & Full Stack Developer",
       description:
-        "Node.js backend engineer from Nepal with 2.5 years building scalable REST APIs, microservices, and full stack systems. Specializing in NestJS, TypeScript, PostgreSQL, and Docker. Explore my projects and experience.",
+        "Backend engineer from Nepal with 2.5 years building scalable REST APIs, microservices, and full stack systems. Specializing in NestJS, TypeScript, PostgreSQL, and Docker. Explore my projects and experience.",
       keywords: [
-        "nodejs backend developer portfolio nepal",
+        "backend developer portfolio nepal",
         "nestjs developer portfolio",
         "full stack developer portfolio nepal",
         "typescript developer nepal portfolio",
@@ -87,12 +87,12 @@ export const seo = {
     },
  
     about: {
-      title: "About Subash Tharu — Node.js Backend Engineer, Nepal",
+      title: "About Subash Tharu — Backend Engineer, Nepal",
       description:
         "Backend engineer who started in frontend and evolved into scalable systems — NestJS, PostgreSQL, Docker, and microservices. Building government platforms, AI tools, and geospatial infrastructure in Nepal.",
       keywords: [
         "subash tharu about",
-        "node.js backend engineer nepal bio",
+        "backend engineer nepal bio",
         "full stack developer nepal background",
         "software engineer profile nepal",
         "backend developer journey nepal",
@@ -105,7 +105,7 @@ export const seo = {
       description:
         "Production projects including AgriVision AI (crop disease detection in 60s), Nepal GeoSearch (1M+ OSM records, PostGIS + Elasticsearch), and government citizen platforms serving 5,000+ users.",
       keywords: [
-        "nodejs backend projects nepal",
+        "backend projects nepal",
         "nestjs api projects",
         "agrivision ai crop disease detection",
         "nepal geosearch osm postGIS",
