@@ -4,7 +4,13 @@ import { motion } from 'framer-motion'
 import { skillGroups } from '@/data/skills'
 import { Terminal, Database, Cloud, Code2, Wrench, Brain } from 'lucide-react'
 import { useState } from 'react'
-import * as SimpleIcons from 'react-icons/si'
+import {
+    SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiHtml5, SiTailwindcss,
+    SiNodedotjs, SiNestjs, SiExpress, SiGo, SiFastapi, SiPostman, SiJsonwebtokens,
+    SiPython, SiPostgresql, SiMysql, SiRedis, SiElasticsearch, SiMongodb,
+    SiDocker, SiNginx, SiLinux, SiTraefikproxy, SiGit, SiGithubactions,
+    SiFigma, SiCloudinary, SiVuetify, SiOpenstreetmap
+} from 'react-icons/si'
 
 const categoryIcons = {
     frontend: Code2,
@@ -15,10 +21,17 @@ const categoryIcons = {
     ai_ml: Brain,
 }
 
+const simpleIconMap: Record<string, any> = {
+    SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiHtml5, SiTailwindcss,
+    SiNodedotjs, SiNestjs, SiExpress, SiGo, SiFastapi, SiPostman, SiJsonwebtokens,
+    SiPython, SiPostgresql, SiMysql, SiRedis, SiElasticsearch, SiMongodb,
+    SiDocker, SiNginx, SiLinux, SiTraefikproxy, SiGit, SiGithubactions,
+    SiFigma, SiCloudinary, SiVuetify, SiOpenstreetmap
+}
+
 // Helper function to get icon component from string
 const getIconComponent = (iconName: string) => {
-    const IconComponent = (SimpleIcons as any)[iconName]
-    return IconComponent || null
+    return simpleIconMap[iconName] || null
 }
 
 export function SkillsShowcaseSection() {

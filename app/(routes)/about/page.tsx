@@ -1,4 +1,3 @@
-'use client'
 
 import { AboutHeroSection } from '@/components/sections/about/about-hero-section'
 import { EducationSection } from '@/components/sections/about/education-section'

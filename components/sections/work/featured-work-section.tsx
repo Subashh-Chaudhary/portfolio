@@ -11,7 +11,7 @@ export function FeaturedWorkSection() {
     const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 
     return (
-        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-50 overflow-hidden">
+        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-black overflow-hidden">
             {/* Animated Gradient Background */}
             <div className="absolute inset-0 z-0 opacity-20">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-orange-500/10" />
@@ -87,7 +87,7 @@ export function FeaturedWorkSection() {
                                 transition={{ delay: index * 0.15, duration: 0.6 }}
                                 onMouseEnter={() => setHoveredProject(project.id)}
                                 onMouseLeave={() => setHoveredProject(null)}
-                                className="group relative bg-gradient-to-br from-white to-slate-100 border border-slate-200 hover:border-transparent transition-all duration-300 overflow-hidden"
+                                className="group relative bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-transparent transition-all duration-300 overflow-hidden"
                             >
                                 {/* Gradient Border on Hover */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -130,7 +130,7 @@ export function FeaturedWorkSection() {
                                     </div>
 
                                     {/* Status Indicator */}
-                                    <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-slate-50/50 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-slate-200">
+                                    <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10">
                                         <motion.div
                                             className="w-2 h-2 rounded-full bg-green-500"
                                             animate={{ opacity: [1, 0.3, 1] }}
@@ -180,7 +180,7 @@ export function FeaturedWorkSection() {
                                                     </motion.span>
                                                 ))}
                                                 {project.tags.length > 6 && (
-                                                    <span className="px-3 py-1.5 bg-white/5 border border-slate-200 rounded-lg text-xs text-gray-500 font-mono">
+                                                    <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs text-gray-500 font-mono">
                                                         +{project.tags.length - 6}
                                                     </span>
                                                 )}
@@ -189,7 +189,7 @@ export function FeaturedWorkSection() {
                                     )}
 
                                     {/* Metadata Row */}
-                                    <div className="flex items-center justify-between mb-5 pb-5 border-b border-slate-200">
+                                    <div className="flex items-center justify-between mb-5 pb-5 border-b border-white/10">
                                         {project.completedAt && (
                                             <div className="flex items-center gap-2 text-sm text-gray-500">
                                                 <Calendar className="w-4 h-4 text-gray-600" />
@@ -240,7 +240,7 @@ export function FeaturedWorkSection() {
                                 </div>
 
                                 {/* Bottom Status Bar */}
-                                <div className="relative z-10 px-5 sm:px-6 md:px-8 py-2.5 border-t border-slate-200 bg-slate-50/50">
+                                <div className="relative z-10 px-5 sm:px-6 md:px-8 py-2.5 border-t border-white/10 bg-white/5">
                                     <div className="flex items-center justify-between">
                                         <span className="font-mono text-[9px] sm:text-[10px] text-gray-600 uppercase tracking-wider">
                                             Project #{String(index + 1).padStart(2, '0')}
@@ -273,7 +273,7 @@ export function FeaturedWorkSection() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.8 }}
-                    className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-slate-200"
+                    className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-white/10"
                 >
                     <div className="font-mono text-[10px] sm:text-xs text-gray-600 flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <span className="text-green-500">$</span>

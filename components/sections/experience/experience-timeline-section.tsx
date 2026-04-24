@@ -36,7 +36,7 @@ export function ExperienceTimelineSection() {
     const [hoveredExperience, setHoveredExperience] = useState<string | null>(null)
 
     return (
-        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#1a1814] overflow-hidden">
+        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-black overflow-hidden">
             {/* Animated Gradient Background */}
             <div className="absolute inset-0 z-0 opacity-20">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-teal-500/10" />
@@ -130,7 +130,7 @@ export function ExperienceTimelineSection() {
                                     onMouseLeave={() => setHoveredExperience(null)}
                                     whileHover={{ x: 10, scale: 1.01 }}
                                     transition={{ type: "spring", stiffness: 300 }}
-                                    className="group relative bg-gradient-to-br from-[#2c2825] to-[#1f1b18] border border-[#3d3530] hover:border-transparent transition-all duration-300 md:ml-16 overflow-hidden"
+                                    className="group relative bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-transparent transition-all duration-300 md:ml-16 overflow-hidden"
                                 >
                                     {/* Gradient Border on Hover */}
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -143,7 +143,7 @@ export function ExperienceTimelineSection() {
 
                                     <div className="relative z-10 p-5 sm:p-6 md:p-8">
                                         {/* Header */}
-                                        <div className="flex items-start justify-between mb-4 sm:mb-5 md:mb-6 pb-4 border-b border-[#3d3530]">
+                                        <div className="flex items-start justify-between mb-4 sm:mb-5 md:mb-6 pb-4 border-b border-white/10">
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-2 sm:gap-3 mb-2">
                                                     <div className="p-2 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg group-hover:from-blue-500/30 group-hover:to-cyan-500/30 transition-all">
@@ -208,7 +208,7 @@ export function ExperienceTimelineSection() {
 
                                             {/* Technologies */}
                                             {exp.technologies && exp.technologies.length > 0 && (
-                                                <div className="pt-3 border-t border-[#3d3530]">
+                                                <div className="pt-3 border-t border-white/10">
                                                     <div className="font-mono text-xs text-cyan-400 uppercase mb-3 flex items-center gap-2">
                                                         <Award className="w-3 h-3" />
                                                         Technologies
@@ -233,7 +233,7 @@ export function ExperienceTimelineSection() {
 
                                             {/* Achievements */}
                                             {exp.achievements && exp.achievements.length > 0 && (
-                                                <div className="pt-3 border-t border-[#3d3530]">
+                                                <div className="pt-3 border-t border-white/10">
                                                     <div className="font-mono text-xs text-cyan-400 uppercase mb-3 flex items-center gap-2">
                                                         <TrendingUp className="w-3 h-3" />
                                                         Key Achievements
@@ -259,7 +259,7 @@ export function ExperienceTimelineSection() {
                                     </div>
 
                                     {/* Bottom Status Bar */}
-                                    <div className="relative z-10 px-5 sm:px-6 md:px-8 py-2 border-t border-[#3d3530] bg-[#1a1814]/50">
+                                    <div className="relative z-10 px-5 sm:px-6 md:px-8 py-2 border-t border-white/10 bg-black/50">
                                         <div className="flex items-center justify-between">
                                             <span className="font-mono text-[9px] sm:text-[10px] text-gray-600 uppercase">
                                                 Position #{String(index + 1).padStart(2, '0')}
@@ -293,7 +293,7 @@ export function ExperienceTimelineSection() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.8 }}
-                    className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-[#3d3530]"
+                    className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-white/10"
                 >
                     <div className="font-mono text-[10px] sm:text-xs text-gray-600 flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <span className="text-green-500">$</span>

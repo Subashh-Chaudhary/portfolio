@@ -40,7 +40,7 @@ export function ContactHeroSection() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="relative py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 bg-[#1a1814] overflow-hidden"
+            className="relative py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 bg-black overflow-hidden"
         >
             {/* Animated Gradient Background */}
             <div className="absolute inset-0 z-0 opacity-30">

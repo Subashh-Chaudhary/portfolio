@@ -3,30 +3,35 @@
 import { motion } from 'framer-motion'
 import { interests, personalValues } from '@/data/about'
 import { useState } from 'react'
-import * as SimpleIcons from 'react-icons/si'
-import * as LucideIcons from 'lucide-react'
-import { Sparkles, Star } from 'lucide-react'
+import { SiOpensourceinitiative } from 'react-icons/si'
+import { Sparkles, Star, Server, Brain, Database, Container, Map, Palette, Code2, Target, Zap } from 'lucide-react'
+
+const simpleIconMap: Record<string, any> = {
+    SiOpensourceinitiative,
+}
+
+const lucideIconMap: Record<string, any> = {
+    Server, Brain, Database, Container, Map, Palette, Code2, Target, Zap, Star
+}
 
 // Helper function to get icon component
 const getIconComponent = (iconName: string, iconType: 'simple' | 'lucide') => {
     if (iconType === 'simple') {
-        const IconComponent = (SimpleIcons as any)[iconName]
-        return IconComponent || null
+        return simpleIconMap[iconName] || null
     } else {
-        const IconComponent = (LucideIcons as any)[iconName]
-        return IconComponent || null
+        return lucideIconMap[iconName] || null
     }
 }
 
 const getPersonalValueIcon = (iconName: string) => {
     const normalized = iconName.toLowerCase()
 
-    if (normalized === 'brain') return LucideIcons.Brain
-    if (normalized === 'target') return LucideIcons.Target
-    if (normalized === 'code') return LucideIcons.Code2
-    if (normalized === 'zap') return LucideIcons.Zap
+    if (normalized === 'brain') return Brain
+    if (normalized === 'target') return Target
+    if (normalized === 'code') return Code2
+    if (normalized === 'zap') return Zap
 
-    return LucideIcons.Star
+    return Star
 }
 
 export function InterestsSection() {

@@ -33,7 +33,7 @@ export const skills: Skill[] = [
     { id: '23', name: 'Docker Compose', category: 'devops', proficiency: 80, yearsOfExperience: 2, icon: 'SiDocker' },
     { id: '24', name: 'Nginx',          category: 'devops', proficiency: 75, yearsOfExperience: 2, icon: 'SiNginx' },
     { id: '25', name: 'Linux (Ubuntu)', category: 'devops', proficiency: 78, yearsOfExperience: 2, icon: 'SiLinux' },
-    { id: '26', name: 'Traefik',        category: 'devops', proficiency: 65, yearsOfExperience: 1, icon: 'SiTraefik' },
+    { id: '26', name: 'Traefik',        category: 'devops', proficiency: 65, yearsOfExperience: 1, icon: 'SiTraefikproxy' },
     {id: '27', name: 'Git / GitHub',   category: 'devops', proficiency: 92, yearsOfExperience: 3, icon: 'SiGit' },
     {id: '28', name: 'GitHub Actions', category: 'devops', proficiency: 70, yearsOfExperience: 1, icon: 'SiGithubactions' },
  
@@ -41,7 +41,7 @@ export const skills: Skill[] = [
     { id: '29', name: 'Postman',        category: 'tools', proficiency: 95, yearsOfExperience: 2, icon: 'SiPostman' },
     { id: '30', name: 'Figma',          category: 'tools', proficiency: 75, yearsOfExperience: 2, icon: 'SiFigma' },
     { id: '31', name: 'Cloudinary',     category: 'tools', proficiency: 72, yearsOfExperience: 1, icon: 'SiCloudinary' },
-    { id: '32', name: 'VS Code',        category: 'tools', proficiency: 95, yearsOfExperience: 3, icon: 'SiVisualstudiocode' },
+    { id: '32', name: 'VS Code',        category: 'tools', proficiency: 95, yearsOfExperience: 3, icon: 'SiVuetify' },
     { id: '33', name: 'osm2pgsql',      category: 'tools', proficiency: 68, yearsOfExperience: 1, icon: 'SiOpenstreetmap' },
 ]
  

@@ -26,7 +26,7 @@ export function ContactInfoSection() {
     }
 
     return (
-        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#1a1814] overflow-hidden">
+        <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-black overflow-hidden">
             {/* Animated Gradient Background */}
             <div className="absolute inset-0 z-0 opacity-20">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-green-500/10 to-lime-500/10" />
@@ -95,7 +95,7 @@ export function ContactInfoSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                         whileHover={{ y: -5, scale: 1.01 }}
-                        className="group relative bg-gradient-to-br from-[#2c2825] to-[#1f1b18] border border-[#3d3530] hover:border-transparent transition-all duration-300 overflow-hidden"
+                        className="group relative bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-transparent transition-all duration-300 overflow-hidden"
                     >
                         {/* Gradient Border on Hover */}
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-green-500/20 to-lime-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -123,7 +123,7 @@ export function ContactInfoSection() {
                                 Best way to reach me for professional inquiries
                             </p>
 
-                            <div className="mb-6 p-4 bg-white/5 rounded-lg border border-[#3d3530]">
+                            <div className="mb-6 p-4 bg-white/5 rounded-lg border border-white/10">
                                 <p className="font-mono text-emerald-400 text-sm sm:text-base break-all">
                                     {personalInfo.email}
                                 </p>
@@ -173,7 +173,7 @@ export function ContactInfoSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.15 }}
                         whileHover={{ y: -5, scale: 1.01 }}
-                        className="group relative bg-gradient-to-br from-[#2c2825] to-[#1f1b18] border border-[#3d3530] hover:border-transparent transition-all duration-300 overflow-hidden"
+                        className="group relative bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-transparent transition-all duration-300 overflow-hidden"
                     >
                         {/* Gradient Border on Hover */}
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-green-500/20 to-lime-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -229,7 +229,7 @@ export function ContactInfoSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
-                    className="border-t border-[#3d3530] pt-8 sm:pt-10 md:pt-12"
+                    className="border-t border-white/10 pt-8 sm:pt-10 md:pt-12"
                 >
                     <div className="mb-6">
                         <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Connect on Social Media</h3>
@@ -252,7 +252,7 @@ export function ContactInfoSection() {
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1 }}
                                     whileHover={{ y: -5, scale: 1.05 }}
-                                    className="group relative bg-gradient-to-br from-[#2c2825] to-[#1f1b18] border border-[#3d3530] hover:border-transparent p-6 transition-all duration-300 overflow-hidden"
+                                    className="group relative bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-transparent p-6 transition-all duration-300 overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -278,7 +278,7 @@ export function ContactInfoSection() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.8 }}
-                    className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-[#3d3530]"
+                    className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-white/10"
                 >
                     <div className="font-mono text-[10px] sm:text-xs text-gray-600 flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <span className="text-green-500">$</span>
