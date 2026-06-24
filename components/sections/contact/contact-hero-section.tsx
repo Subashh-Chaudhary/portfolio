@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { personalInfo } from '@/data/personal'
 import { staggerContainer, staggerItem } from '@/lib/animations/framer/variants'
 import { useState, useEffect } from 'react'
 import { Mail, MessageSquare, Clock, Zap } from 'lucide-react'

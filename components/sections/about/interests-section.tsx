@@ -126,7 +126,6 @@ export function InterestsSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
                     {interests.map((interest, index) => {
                         const Icon = getIconComponent(interest.icon, interest.iconType)
-                        const isHovered = hoveredInterest === interest.id
 
                         return (
                             <motion.div

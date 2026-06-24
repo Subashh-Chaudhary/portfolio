@@ -9,7 +9,6 @@ import {
     processImageData,
     createBinaryMatrix,
     countVoxels,
-    calculateScale,
 } from '@/lib/three/imageProcessor';
 import { VoxelSceneProps, BinaryMatrix } from '@/types/three';
 
@@ -92,6 +91,7 @@ export function VoxelSceneEnhanced({
         return () => {
             mounted = false;
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
         imagePath,
         config.threshold,

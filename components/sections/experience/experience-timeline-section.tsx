@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { experiences } from '@/data/experience'
 import { Briefcase, MapPin, Calendar, Award, TrendingUp, Building2 } from 'lucide-react'
-import { useState } from 'react'
 
 // Helper function to calculate duration
 const calculateDuration = (startDate: string, endDate?: string) => {
@@ -33,8 +32,6 @@ const formatDate = (dateString: string) => {
 }
 
 export function ExperienceTimelineSection() {
-    const [hoveredExperience, setHoveredExperience] = useState<string | null>(null)
-
     return (
         <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-black overflow-hidden">
             {/* Animated Gradient Background */}
@@ -104,8 +101,6 @@ export function ExperienceTimelineSection() {
                     <div className="absolute left-4 sm:left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500 via-cyan-500 to-teal-500 hidden md:block" />
 
                     {experiences.map((exp, index) => {
-                        const isHovered = hoveredExperience === exp.id
-
                         return (
                             <motion.div
                                 key={exp.id}
@@ -126,8 +121,6 @@ export function ExperienceTimelineSection() {
                                 />
 
                                 <motion.div
-                                    onMouseEnter={() => setHoveredExperience(exp.id)}
-                                    onMouseLeave={() => setHoveredExperience(null)}
                                     whileHover={{ x: 10, scale: 1.01 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                     className="group relative bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-transparent transition-all duration-300 md:ml-16 overflow-hidden"

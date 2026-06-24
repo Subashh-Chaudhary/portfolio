@@ -1,13 +1,6 @@
 'use client'
 
 import { socialLinks } from '@/data/personal'
-import { Github, Linkedin, Twitter } from 'lucide-react'
-
-const iconMap = {
-    github: Github,
-    linkedin: Linkedin,
-    twitter: Twitter,
-}
 
 export function Footer() {
     // Filter to only show github, linkedin, and twitter

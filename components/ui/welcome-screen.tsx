@@ -4,22 +4,22 @@ import { useEffect, useState } from 'react'
 import { SpiralAnimation } from './spiral-animation'
 
 export function WelcomeScreen() {
-    const [shouldRender, setShouldRender] = useState(true) // Start as true to prevent flash
+    const [shouldRender, setShouldRender] = useState(false) // Start as false to prevent server-side flash on subsequent visits
     const [isVisible, setIsVisible] = useState(true)
     const [startVisible, setStartVisible] = useState(false)
 
     useEffect(() => {
-        // Check if user has visited before immediately
+        // Check if user has visited before client-side
         const hasVisited = localStorage.getItem('hasVisitedBefore')
 
         if (hasVisited) {
-            // User has visited before, hide immediately
-            setShouldRender(false)
-            setIsVisible(false)
+            // User has visited before, do not render welcome screen
             return
         }
 
-        // User hasn't visited, show welcome screen
+        // Set shouldRender to true to mount the welcome screen
+        setShouldRender(true)
+
         // Fade in the start button after animation loads
         const buttonTimer = setTimeout(() => {
             setStartVisible(true)

@@ -2,13 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { featuredProjects } from '@/data/projects'
-import { ExternalLink, Github, Calendar, Tag, Sparkles, Code2, Award } from 'lucide-react'
-import Link from 'next/link'
+import { ExternalLink, Github, Calendar, Tag, Code2, Award } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
-
+import Link from 'next/link'
 export function FeaturedWorkSection() {
-    const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 
     return (
         <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-black overflow-hidden">
@@ -76,8 +73,6 @@ export function FeaturedWorkSection() {
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
                     {featuredProjects.map((project, index) => {
-                        const isHovered = hoveredProject === project.id
-
                         return (
                             <motion.div
                                 key={project.id}
@@ -85,8 +80,6 @@ export function FeaturedWorkSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.15, duration: 0.6 }}
-                                onMouseEnter={() => setHoveredProject(project.id)}
-                                onMouseLeave={() => setHoveredProject(null)}
                                 className="group relative bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-transparent transition-all duration-300 overflow-hidden"
                             >
                                 {/* Gradient Border on Hover */}
@@ -150,9 +143,11 @@ export function FeaturedWorkSection() {
                                 <div className="relative z-10 p-5 sm:p-6 md:p-8">
                                     {/* Title & Description */}
                                     <div className="mb-4 sm:mb-5">
-                                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all mb-3">
-                                            {project.title}
-                                        </h3>
+                                        <Link href={`/work/${project.slug}`}>
+                                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white hover:text-purple-400 transition-all mb-3 cursor-pointer">
+                                                {project.title}
+                                            </h3>
+                                        </Link>
                                         <p className="text-sm sm:text-base text-gray-400 group-hover:text-gray-300 leading-relaxed transition-colors">
                                             {project.description}
                                         </p>

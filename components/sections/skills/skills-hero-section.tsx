@@ -27,12 +27,6 @@ export function SkillsHeroSection() {
     // Calculate stats
     const totalCategories = skillGroups.length
     const totalSkills = skillGroups.reduce((acc, group) => acc + group.skills.length, 0)
-    const averageProficiency = Math.round(
-        skillGroups.reduce((acc, group) => {
-            const groupAvg = group.skills.reduce((sum, skill) => sum + skill.proficiency, 0) / group.skills.length
-            return acc + groupAvg
-        }, 0) / skillGroups.length
-    )
     const expertSkills = skillGroups.reduce((acc, group) => {
         return acc + group.skills.filter(skill => skill.proficiency >= 85).length
     }, 0)

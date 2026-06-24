@@ -37,7 +37,7 @@ export function ContactFormSection() {
                 setSubmitStatus('error')
                 setTimeout(() => setSubmitStatus('idle'), 5000)
             }
-        } catch (error) {
+        } catch {
             setSubmitStatus('error')
             setTimeout(() => setSubmitStatus('idle'), 5000)
         } finally {

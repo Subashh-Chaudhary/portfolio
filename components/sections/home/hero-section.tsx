@@ -3,10 +3,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { personalInfo } from '@/data/personal'
-import { ArrowRight, Terminal, Cpu, Network, Code2 } from 'lucide-react'
-import { staggerContainer, staggerItem } from '@/lib/animations/framer/variants'
+import { Terminal, Cpu, Network, Code2 } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef } from 'react'
+import { TerminalModal } from '@/components/common/terminal-modal'
 
 // Dynamically import the voxel portrait to avoid SSR issues and reduce initial bundle
 const HeroVoxelPortrait = dynamic(
@@ -79,6 +79,7 @@ export function HeroSection() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0, pixelX: 0, pixelY: 0 })
     const [isHoveringVoxels, setIsHoveringVoxels] = useState(false)
     const [shouldLoadVoxels, setShouldLoadVoxels] = useState(false)
+    const [isTerminalOpen, setIsTerminalOpen] = useState(false)
     const sectionRef = useRef<HTMLElement>(null)
 
     // Intersection observer to lazy load 3D portrait
@@ -263,15 +264,15 @@ export function HeroSection() {
                         transition={{ duration: 0.4, delay: 0.4 }}
                         className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-12 2xl:mt-16 flex flex-wrap gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-6 2xl:gap-8 items-center"
                     >
-                        <a
-                            href="#projects"
+                        <button
+                            onClick={() => setIsTerminalOpen(true)}
                             className="group relative px-4 sm:px-5 md:px-6 lg:px-8 xl:px-8 2xl:px-10 py-2 sm:py-2.5 md:py-2.5 lg:py-3 xl:py-3 2xl:py-4 bg-white text-black font-bold text-[9px] sm:text-[10px] md:text-xs lg:text-sm xl:text-sm 2xl:text-base tracking-wider sm:tracking-wide md:tracking-widest uppercase overflow-hidden hover:bg-blue-500 hover:text-white transition-colors duration-300"
                         >
                             <span className="relative z-10 flex items-center gap-2">
-                                Initialize_Projects
-                                <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5" />
+                                SU_BASH_TERMINAL
+                                <Terminal className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5" />
                             </span>
-                        </a>
+                        </button>
 
                         <a
                             href="/contact"
@@ -297,6 +298,8 @@ export function HeroSection() {
                     </span>
                 </div>
             </motion.div>
+
+            <TerminalModal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
         </section>
     )
 }

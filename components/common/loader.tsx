@@ -14,7 +14,7 @@ const GlitchText = ({ text }: { text: string }) => {
             setDisplay(
                 text
                     .split('')
-                    .map((letter, index) => {
+                    .map((letter) => {
                         if (Math.random() > 0.9) {
                             return chars[Math.floor(Math.random() * chars.length)]
                         }

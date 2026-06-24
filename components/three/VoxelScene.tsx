@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useMemo, useState } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -9,7 +9,6 @@ import {
     processImageData,
     createBinaryMatrix,
     countVoxels,
-    calculateScale,
 } from '@/lib/three/imageProcessor';
 import { VoxelSceneProps, BinaryMatrix } from '@/types/three';
 
@@ -22,7 +21,7 @@ export function VoxelScene({
     const meshRef = useRef<THREE.InstancedMesh>(null);
     const matrixRef = useRef<BinaryMatrix | null>(null);
     const { camera } = useThree();
-    const [isInViewport, setIsInViewport] = useState(true);
+    const isInViewport = true;
 
     // Create geometry based on mode
     const geometry = useMemo(() => {
@@ -87,6 +86,7 @@ export function VoxelScene({
         return () => {
             mounted = false;
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [imagePath, config.threshold, config.pixelStep, config.invertBinary, config.preserveColor]);
 
     // Update instanced mesh when matrix changes
@@ -135,7 +135,6 @@ export function VoxelScene({
         }
 
         // Position camera
-        const scale = calculateScale(matrix.width, matrix.height, config.voxelSize);
         const distance = Math.max(matrix.width, matrix.height) * config.voxelSize * 1.5;
         camera.position.set(distance * 0.5, distance * 0.3, distance);
         camera.lookAt(0, 0, 0);

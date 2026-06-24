@@ -26,7 +26,6 @@ export function ExperienceHeroSection() {
 
     // Calculate stats
     const totalCompanies = experiences.length
-    const currentRole = experiences.find(exp => exp.current)
     const allTechnologies = new Set(experiences.flatMap(exp => exp.technologies || []))
     const techCount = allTechnologies.size
 
