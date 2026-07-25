@@ -79,7 +79,7 @@ export default function NotFound() {
                     </h2>
 
                     <p className="text-gray-400 max-w-2xl mx-auto font-light border-l-2 border-white/10 pl-6 text-base sm:text-lg mb-12">
-                        The page you're looking for doesn't exist or has been moved. The system cannot locate the requested resource.
+                        The page you&apos;re looking for doesn&apos;t exist or has been moved. The system cannot locate the requested resource.
                     </p>
 
                     {/* Action Buttons */}

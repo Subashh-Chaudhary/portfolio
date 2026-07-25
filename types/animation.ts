@@ -1,4 +1,4 @@
-import { Variants, Transition } from 'framer-motion'
+import type { Variants, Transition } from 'framer-motion'
 
 export interface AnimationConfig {
     initial?: any

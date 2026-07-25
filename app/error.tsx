@@ -89,18 +89,16 @@ export default function Error({
                         An unexpected error occurred. The system encountered a critical exception and needs to recover.
                     </p>
 
-                    {/* Error Details (Optional) */}
-                    {error.digest && (
-                        <div className="mb-8 p-4 border border-red-500/20 bg-red-500/5 rounded max-w-2xl mx-auto">
-                            <div className="font-mono text-xs text-red-400/80 text-left">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <Terminal className="w-3 h-3" />
-                                    <span>Error Digest:</span>
-                                </div>
-                                <div className="text-gray-500 pl-5">{error.digest}</div>
-                            </div>
+                    {/* Error Details */}
+                    <div className="mb-8 p-4 border border-red-500/30 bg-red-500/10 rounded-lg max-w-2xl mx-auto text-left font-mono text-xs text-red-300 overflow-x-auto">
+                        <div className="flex items-center gap-2 mb-2 text-red-400 font-bold">
+                            <Terminal className="w-4 h-4" />
+                            <span>RUNTIME ERROR TRACE:</span>
                         </div>
-                    )}
+                        <div className="text-white font-semibold mb-2">{error?.message || 'Unknown Error'}</div>
+                        {error?.digest && <div className="text-gray-400 text-[10px] mb-2">Digest: {error.digest}</div>}
+                        {error?.stack && <pre className="text-[10px] text-red-200/80 whitespace-pre-wrap max-h-48 overflow-y-auto">{error.stack}</pre>}
+                    </div>
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

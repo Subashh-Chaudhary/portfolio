@@ -10,7 +10,7 @@ import {
     createBinaryMatrix,
     countVoxels,
 } from '@/lib/three/imageProcessor';
-import { VoxelSceneProps, BinaryMatrix } from '@/types/three';
+import type { VoxelSceneProps, BinaryMatrix } from '@/types/three';
 
 export function VoxelScene({
     imagePath,
@@ -148,27 +148,29 @@ export function VoxelScene({
         return isMobile ? Math.floor(baseInstances * 0.7) : baseInstances;
     }, [config.pixelStep]);
 
-    // Subtle rotation animation - only when in viewport
+    // Dynamic rotation and floating wave animation - GPU accelerated
     useFrame((state) => {
         if (meshRef.current && isInViewport) {
-            meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.1) * 0.05;
+            const time = state.clock.getElapsedTime();
+            meshRef.current.rotation.y = Math.sin(time * 0.15) * 0.08;
+            meshRef.current.position.y = Math.sin(time * 0.4) * 0.1;
         }
     });
 
     return (
         <>
             {/* Lighting */}
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
-            <directionalLight position={[-10, -10, -5]} intensity={0.3} />
+            <ambientLight intensity={0.6} />
+            <directionalLight position={[10, 15, 8]} intensity={1.2} />
+            <directionalLight position={[-10, -10, -5]} intensity={0.4} color="#3b82f6" />
 
             {/* Instanced Mesh */}
             <instancedMesh
                 ref={meshRef}
                 args={[geometry, material, maxInstances]}
-                frustumCulled={false}
+                frustumCulled={true}
             >
-                <meshStandardMaterial />
+                <meshStandardMaterial metalness={0.2} roughness={0.3} />
             </instancedMesh>
 
             {/* Controls */}

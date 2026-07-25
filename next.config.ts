@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
+  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
 
   // Image optimization
   images: {
@@ -22,18 +23,7 @@ const nextConfig: NextConfig = {
     } : false,
   },
 
-  // Optimize imports for better tree-shaking
-  modularizeImports: {
-    'framer-motion': {
-      transform: 'framer-motion/dist/es/{{member}}',
-    },
-    'lucide-react': {
-      transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
-    },
-    'react-icons': {
-      transform: 'react-icons/{{member}}',
-    },
-  },
+
 
   // Production optimizations
   swcMinify: true,
@@ -41,7 +31,7 @@ const nextConfig: NextConfig = {
   // Experimental features for performance
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['framer-motion', 'lucide-react', '@react-three/fiber', '@react-three/drei', 'react-icons'],
+    optimizePackageImports: ['lucide-react', 'react-icons'],
     // Enable server optimizations
     serverActions: {
       bodySizeLimit: '2mb',
@@ -50,57 +40,7 @@ const nextConfig: NextConfig = {
 
   // Webpack optimizations
   webpack: (config, { isServer }) => {
-    // Optimize bundle splitting
-    if (!isServer) {
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          chunks: 'all',
-          cacheGroups: {
-            default: false,
-            vendors: false,
-            // Vendor chunk for React and related libraries
-            framework: {
-              name: 'framework',
-              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
-              priority: 40,
-              enforce: true,
-            },
-            // Three.js chunk
-            three: {
-              name: 'three',
-              test: /[\\/]node_modules[\\/](three|@react-three)[\\/]/,
-              priority: 30,
-              enforce: true,
-            },
-            // Framer Motion chunk
-            framer: {
-              name: 'framer',
-              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
-              priority: 25,
-              enforce: true,
-            },
-            // Common libraries
-            lib: {
-              test: /[\\/]node_modules[\\/]/,
-              name: 'lib',
-              priority: 20,
-              minChunks: 2,
-              reuseExistingChunk: true,
-            },
-            // Common components
-            commons: {
-              name: 'commons',
-              minChunks: 2,
-              priority: 10,
-              reuseExistingChunk: true,
-            },
-          },
-        },
-      };
-    }
-
-    // Add bundle analyzer in development
+    // Add bundle analyzer when ANALYZE env var is set
     if (process.env.ANALYZE === 'true') {
       const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
       config.plugins.push(

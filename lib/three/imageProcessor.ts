@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { BinaryMatrix, PixelData } from '@/types/three';
+import type { BinaryMatrix, PixelData } from '@/types/three';
 
 /**
  * Loads an image and returns a THREE.Texture

@@ -1,9 +1,9 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { VoxelScene } from './VoxelScene';
-import { VoxelConfig } from '@/types/three';
-import { useState, useEffect } from 'react';
+import type { VoxelConfig } from '@/types/three';
 
 interface HeroVoxelPortraitProps {
     className?: string;
@@ -13,7 +13,7 @@ interface HeroVoxelPortraitProps {
  * Optimized Binary Voxel Portrait for Hero Section
  * Pre-configured with optimal settings for performance and aesthetics
  */
-export function HeroVoxelPortrait({ className = '' }: HeroVoxelPortraitProps) {
+export default function HeroVoxelPortrait({ className = '' }: HeroVoxelPortraitProps) {
     const [isLoading, setIsLoading] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
     const [imagePath, setImagePath] = useState('/images/profile.jpg');
@@ -73,7 +73,7 @@ export function HeroVoxelPortrait({ className = '' }: HeroVoxelPortraitProps) {
                     antialias: !isMobile, // Disable antialiasing on mobile for better performance
                     powerPreference: 'high-performance',
                 }}
-                dpr={isMobile ? 1 : Math.min(window.devicePixelRatio, 2)} // Limit DPR for performance
+                dpr={isMobile ? 1 : Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 2)} // Limit DPR for performance
                 onCreated={() => setIsLoading(false)}
             >
                 <VoxelScene

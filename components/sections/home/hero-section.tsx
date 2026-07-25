@@ -1,25 +1,12 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { personalInfo } from '@/data/personal'
 import { Terminal, Cpu, Network, Code2 } from 'lucide-react'
-import dynamic from 'next/dynamic'
-import { useState, useEffect, useRef } from 'react'
+import HeroVoxelPortrait from '@/components/three/HeroVoxelPortrait'
 import { TerminalModal } from '@/components/common/terminal-modal'
-
-// Dynamically import the voxel portrait to avoid SSR issues and reduce initial bundle
-const HeroVoxelPortrait = dynamic(
-    () => import('@/components/three/HeroVoxelPortrait').then(mod => mod.HeroVoxelPortrait),
-    {
-        ssr: false,
-        loading: () => (
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-transparent via-blue-900/5 to-black">
-                <div className="w-16 h-16 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin" />
-            </div>
-        )
-    }
-)
+import { usePerformanceMonitor } from '@/hooks'
 
 // Scramble text effect component - optimized with requestAnimationFrame
 const ScrambleText = ({ text }: { text: string }) => {
@@ -129,6 +116,8 @@ export function HeroSection() {
         }
     }, [])
 
+    const { fps, tier } = usePerformanceMonitor()
+
     return (
         <section
             ref={sectionRef}
@@ -197,8 +186,8 @@ export function HeroSection() {
 
             <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 lg:top-8 lg:right-8 xl:top-8 xl:right-8 2xl:top-10 2xl:right-10 z-20 font-mono text-[5px] sm:text-[7px] md:text-xs lg:text-xs xl:text-xs 2xl:text-xs text-purple-400/60 hidden md:block text-right">
                 <div>COORD: {mousePosition.x.toFixed(2)}, {mousePosition.y.toFixed(2)}</div>
-                <div>RENDER: VOXEL_ENGINE_V1</div>
-                <div>FPS: 60</div>
+                <div>RENDER: VOXEL_ENGINE_V1 ({(tier || 'high').toUpperCase()})</div>
+                <div>FPS: {fps ?? 60}</div>
             </div>
 
             {/* Main Content */}

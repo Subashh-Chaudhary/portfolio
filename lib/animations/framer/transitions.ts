@@ -1,4 +1,4 @@
-import { Transition } from 'framer-motion'
+import type { Transition } from 'framer-motion'
 
 /**
  * Common Framer Motion transition presets

@@ -3,7 +3,7 @@
  * Optimized animation settings for better performance
  */
 
-import { Transition } from 'framer-motion';
+import type { Transition } from 'framer-motion';
 
 /**
  * Detect if user prefers reduced motion
